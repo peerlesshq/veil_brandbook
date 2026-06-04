@@ -1,0 +1,1253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veil Brand System</title>
+  <style>
+    :root {
+      --ink-950: #05070a;
+      --ink-900: #080d14;
+      --ink-800: #101828;
+      --ink-700: #161c25;
+      --ink-600: #242b36;
+      --pearl-50: #ffffff;
+      --pearl-100: #f7fafc;
+      --pearl-200: #edf4f7;
+      --pearl-300: #d8e2ea;
+      --slate-500: #6b7280;
+      --slate-700: #374151;
+      --jade-500: #00c2a8;
+      --jade-600: #0aa090;
+      --cobalt-500: #315cff;
+      --cobalt-600: #2448d8;
+      --ice-300: #8fd8ff;
+      --gold-500: #c8a45d;
+      --amber-500: #f2a93b;
+      --success: #0ea772;
+      --danger: #d94a4a;
+      --radius: 8px;
+      --shadow: 0 20px 60px rgba(8, 13, 20, .16);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+        sans-serif;
+      color: var(--ink-800);
+      background: var(--pearl-100);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--pearl-100);
+      color: var(--ink-800);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 264px minmax(0, 1fr);
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(247, 250, 252, 0) 0, var(--pearl-100) 720px),
+        var(--pearl-100);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 24px 18px;
+      color: rgba(255, 255, 255, .74);
+      background:
+        linear-gradient(180deg, rgba(8, 13, 20, .76), rgba(8, 13, 20, .94)),
+        url("assets/veil-brand-pattern-v3.png") center / cover no-repeat;
+      border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      color: #fff;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 7px;
+      background: var(--ink-950);
+      padding: 5px;
+      box-shadow: 0 0 32px rgba(0, 194, 168, .32);
+    }
+
+    .brand-mark i {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transform: rotate(45deg);
+      border-radius: 5px;
+      background:
+        linear-gradient(135deg, var(--jade-500), var(--cobalt-500) 68%, var(--gold-500));
+      border: 1px solid rgba(255, 255, 255, .46);
+    }
+
+    .nav-title {
+      margin: 22px 0 8px;
+      color: rgba(255, 255, 255, .42);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      display: grid;
+      gap: 2px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-list a {
+      display: block;
+      padding: 9px 10px;
+      border-radius: 7px;
+      color: rgba(255, 255, 255, .7);
+      font-size: 13px;
+    }
+
+    .nav-list a:hover {
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+    }
+
+    .sidebar-note {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 22px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .48);
+      font-size: 12px;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      isolation: isolate;
+      color: #fff;
+      background: var(--ink-900);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(8, 13, 20, .94), rgba(8, 13, 20, .55) 46%, rgba(8, 13, 20, .12)),
+        linear-gradient(180deg, rgba(8, 13, 20, .06), rgba(8, 13, 20, .9)),
+        url("assets/veil-social-banner-v3.png") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 36vh;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(8, 13, 20, 0), var(--ink-900));
+    }
+
+    .hero-inner,
+    .section-inner {
+      width: min(1180px, calc(100% - 56px));
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      padding: 120px 0 72px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--jade-500);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 20px;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: .94;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: clamp(18px, 2vw, 23px);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 860px;
+      margin-top: 34px;
+    }
+
+    .metric {
+      min-height: 94px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .06);
+      backdrop-filter: blur(14px);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: rgba(255, 255, 255, .62);
+      font-size: 12px;
+    }
+
+    section {
+      padding: 84px 0;
+      background: var(--pearl-100);
+    }
+
+    .section-dark {
+      color: #fff;
+      background: var(--ink-900);
+    }
+
+    .section-pearl {
+      background: var(--pearl-200);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(320px, 1fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(32px, 4.2vw, 54px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--slate-500);
+      font-size: 17px;
+    }
+
+    .section-dark .section-head p,
+    .section-dark .muted {
+      color: rgba(255, 255, 255, .66);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .panel {
+      min-width: 0;
+      border: 1px solid var(--pearl-300);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .86);
+      box-shadow: 0 16px 44px rgba(15, 23, 42, .08);
+      overflow: hidden;
+    }
+
+    .section-dark .panel {
+      border-color: rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .055);
+      box-shadow: none;
+    }
+
+    .panel-body {
+      padding: 22px;
+    }
+
+    .panel h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--slate-500);
+      font-size: 14px;
+    }
+
+    .section-dark .panel p,
+    .section-dark .panel li {
+      color: rgba(255, 255, 255, .66);
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .image-card {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--ink-700);
+      border: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: var(--shadow);
+    }
+
+    .image-card.short {
+      min-height: 300px;
+    }
+
+    .image-card.tall {
+      min-height: 620px;
+    }
+
+    .image-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5, 7, 10, .04), rgba(5, 7, 10, .78));
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      inset: auto 18px 18px;
+      z-index: 1;
+      padding: 16px;
+      border-radius: var(--radius);
+      color: rgba(255, 255, 255, .9);
+      background: rgba(5, 7, 10, .7);
+      border: 1px solid rgba(255, 255, 255, .12);
+      backdrop-filter: blur(12px);
+    }
+
+    .caption h3 {
+      margin-bottom: 5px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .caption p {
+      margin: 0;
+      color: rgba(255, 255, 255, .66);
+      font-size: 13px;
+    }
+
+    .brand-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .brand-pill {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0, 194, 168, .11);
+      color: var(--jade-600);
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .section-dark .brand-pill {
+      background: rgba(0, 194, 168, .14);
+      color: var(--jade-500);
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .swatch {
+      min-height: 116px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      gap: 6px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: var(--color);
+      color: var(--on);
+      border: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    .swatch span:first-child {
+      font-size: 11px;
+      opacity: .74;
+    }
+
+    .swatch span:last-child {
+      font-size: 15px;
+      font-weight: 760;
+      line-height: 1;
+    }
+
+    .ratio-bar {
+      display: grid;
+      grid-template-columns: 58fr 24fr 10fr 6fr 2fr;
+      height: 44px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--pearl-300);
+      margin-top: 18px;
+    }
+
+    .ratio-bar i {
+      display: block;
+      background: var(--color);
+    }
+
+    .token-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--pearl-300);
+    }
+
+    .token-table th,
+    .token-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--pearl-300);
+      text-align: left;
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    .token-table th {
+      color: var(--slate-500);
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: var(--pearl-100);
+    }
+
+    .token-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: var(--ink-800);
+    }
+
+    .logo-system {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .logo-stage {
+      display: grid;
+      place-items: center;
+      min-height: 460px;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 50% 42%, rgba(0, 194, 168, .18), transparent 36%),
+        linear-gradient(135deg, var(--ink-950), var(--ink-800));
+      border: 1px solid rgba(255, 255, 255, .1);
+      overflow: hidden;
+    }
+
+    .logo-stage img {
+      width: min(68%, 360px);
+      height: auto;
+      border-radius: 28px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .48);
+    }
+
+    .clearspace {
+      display: grid;
+      place-items: center;
+      min-height: 220px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(49, 92, 255, .12) 1px, transparent 1px),
+        linear-gradient(rgba(49, 92, 255, .12) 1px, transparent 1px),
+        #fff;
+      background-size: 28px 28px;
+      border: 1px solid var(--pearl-300);
+    }
+
+    .clear-mark {
+      width: 94px;
+      height: 94px;
+      transform: rotate(45deg);
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--jade-500), var(--cobalt-500), var(--gold-500));
+      box-shadow: 0 18px 44px rgba(49, 92, 255, .24);
+    }
+
+    .type-specimen {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .type-large {
+      min-height: 360px;
+      padding: 26px;
+      border-radius: var(--radius);
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(8, 13, 20, .16), rgba(8, 13, 20, .92)),
+        url("assets/veil-brand-pattern-v3.png") center / cover no-repeat;
+    }
+
+    .type-large h3 {
+      margin-bottom: 18px;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .type-scale {
+      display: grid;
+      gap: 10px;
+    }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--pearl-300);
+    }
+
+    .type-row span:first-child {
+      color: var(--slate-500);
+      font-size: 12px;
+    }
+
+    .type-row strong {
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+
+    .ui-frame {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .product-rules {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .rule {
+      padding: 18px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--pearl-300);
+    }
+
+    .rule h3 {
+      font-size: 18px;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .format-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--pearl-300);
+      box-shadow: 0 16px 44px rgba(15, 23, 42, .08);
+    }
+
+    .format-media {
+      aspect-ratio: 1 / 1;
+      background: var(--ink-900);
+    }
+
+    .format-card.story .format-media {
+      aspect-ratio: 9 / 16;
+      max-height: 560px;
+    }
+
+    .format-card.banner {
+      grid-column: span 3;
+      grid-template-columns: minmax(0, 1.6fr) minmax(280px, .9fr);
+      grid-template-rows: none;
+    }
+
+    .format-card.banner .format-media {
+      aspect-ratio: 21 / 9;
+    }
+
+    .format-body {
+      padding: 18px;
+    }
+
+    .format-body h3 {
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+
+    .format-body p {
+      margin-bottom: 0;
+    }
+
+    .standards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .do-dont .panel {
+      min-height: 300px;
+    }
+
+    .do h3 {
+      color: var(--success);
+    }
+
+    .dont h3 {
+      color: var(--danger);
+    }
+
+    .asset-table {
+      display: grid;
+      gap: 10px;
+    }
+
+    .asset-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 180px;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--pearl-300);
+    }
+
+    .asset-thumb {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 6px;
+      background: var(--ink-900);
+    }
+
+    .asset-row h3 {
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .asset-row p {
+      margin: 0;
+      color: var(--slate-500);
+      font-size: 13px;
+    }
+
+    .asset-path {
+      color: var(--slate-500);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      padding: 40px 0 56px;
+      color: rgba(255, 255, 255, .56);
+      background: var(--ink-900);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1120px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        padding: 16px 20px;
+      }
+
+      .sidebar-note,
+      .nav-title,
+      .nav-list {
+        display: none;
+      }
+
+      .brand-lockup {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-metrics,
+      .section-head,
+      .grid.cols-2,
+      .grid.cols-3,
+      .grid.cols-4,
+      .logo-system,
+      .type-specimen,
+      .ui-frame,
+      .social-grid,
+      .standards,
+      .do-dont,
+      .format-card.banner,
+      .product-rules {
+        grid-template-columns: 1fr;
+      }
+
+      .format-card.banner {
+        grid-column: auto;
+      }
+
+      .asset-row {
+        grid-template-columns: 1fr;
+      }
+
+      .asset-thumb {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-inner,
+      .section-inner {
+        width: min(100% - 32px, 1180px);
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .swatches {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .image-card,
+      .image-card.tall {
+        min-height: 360px;
+      }
+
+      .logo-stage {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true"><i></i></span>
+        <span>Veil Brand System</span>
+      </div>
+      <p class="nav-title">Foundation</p>
+      <ul class="nav-list">
+        <li><a href="#strategy">01 Strategy</a></li>
+        <li><a href="#logo">02 Logo and Icon</a></li>
+        <li><a href="#color">03 Color System</a></li>
+        <li><a href="#typography">04 Typography</a></li>
+      </ul>
+      <p class="nav-title">Applications</p>
+      <ul class="nav-list">
+        <li><a href="#imagery">05 Imagery</a></li>
+        <li><a href="#product">06 Product UI</a></li>
+        <li><a href="#social">07 Social Media</a></li>
+        <li><a href="#offline">08 Offline and Deck</a></li>
+      </ul>
+      <p class="nav-title">Governance</p>
+      <ul class="nav-list">
+        <li><a href="#rules">09 Standards</a></li>
+        <li><a href="#assets">10 Asset Library</a></li>
+      </ul>
+      <p class="sidebar-note">Image2-generated brand assets. Direction: Obsidian Jade.</p>
+    </aside>
+
+    <div class="content">
+      <header class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Comprehensive Branding System</p>
+          <h1>Veil turns prediction into a premium signal.</h1>
+          <p class="hero-copy">一个面向亚洲用户、同时能进入欧美市场的预测市场品牌系统。核心语言是深墨、玉青、钴蓝、钻石信号和克制的金属高光：高级、可信、现代，不博彩，不模板化 Web3。</p>
+          <div class="hero-metrics">
+            <div class="metric"><strong>01</strong><span>Brand strategy and principles</span></div>
+            <div class="metric"><strong>10+</strong><span>Project-bound generated assets</span></div>
+            <div class="metric"><strong>4</strong><span>Core color families</span></div>
+            <div class="metric"><strong>6</strong><span>Usage systems for app, social, deck</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="strategy">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>01 Brand Strategy</h2>
+              <p>Veil 的品牌不是“下注”，而是“让不确定性变得可读”。视觉系统要同时服务交易、研究、招商、社媒增长和线下活动。</p>
+            </div>
+            <div class="grid cols-4">
+              <article class="panel">
+                <div class="panel-body">
+                  <h3>Predictive intelligence</h3>
+                  <p>让概率、市场深度和群体判断成为清晰的可视化信号。</p>
+                  <div class="brand-pill-row"><span class="brand-pill">Insight</span><span class="brand-pill">Clarity</span></div>
+                </div>
+              </article>
+              <article class="panel">
+                <div class="panel-body">
+                  <h3>Premium Asia</h3>
+                  <p>玉青和深墨带来亚洲质感，但避免传统纹样和节庆红金。</p>
+                  <div class="brand-pill-row"><span class="brand-pill">Jade</span><span class="brand-pill">Obsidian</span></div>
+                </div>
+              </article>
+              <article class="panel">
+                <div class="panel-body">
+                  <h3>Global trust</h3>
+                  <p>钴蓝承接国际金融科技的可信语义，适合欧美用户和机构材料。</p>
+                  <div class="brand-pill-row"><span class="brand-pill">Fintech</span><span class="brand-pill">Institutional</span></div>
+                </div>
+              </article>
+              <article class="panel">
+                <div class="panel-body">
+                  <h3>Diamond signal</h3>
+                  <p>钻石不是珠宝，是被压缩后的信息切面，象征概率、透明和价值。</p>
+                  <div class="brand-pill-row"><span class="brand-pill">Signal</span><span class="brand-pill">Precision</span></div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="logo" class="section-dark">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>02 Logo and Icon</h2>
+              <p>当前图像资产用于确定材质、光感和方向。正式生产时，建议把钻石图形矢量化，建立单色、双色、深底、浅底和 App icon 五套版本。</p>
+            </div>
+            <div class="logo-system">
+              <div class="logo-stage">
+                <img src="assets/veil-app-icon-v2.png" alt="Veil app icon direction">
+              </div>
+              <div class="grid">
+                <article class="panel">
+                  <div class="panel-body">
+                    <h3>Master mark</h3>
+                    <p>保持菱形比例稳定。切面可以有材质变化，但轮廓必须足够清晰，保证 24px 小尺寸仍能识别。</p>
+                    <ul>
+                      <li>优先使用深底彩色 icon。</li>
+                      <li>浅底使用钴蓝/玉青双色线性版本。</li>
+                      <li>招商材料可加入少量 champagne 金属切面。</li>
+                    </ul>
+                  </div>
+                </article>
+                <article class="panel">
+                  <div class="panel-body">
+                    <h3>Clear space</h3>
+                    <p>Logo 四周至少保留一个钻石短边的 1/2 作为安全空间。不要让文字、按钮、图表或人物靠近切面高光。</p>
+                  </div>
+                  <div class="clearspace">
+                    <span class="clear-mark" aria-hidden="true"></span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="color">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>03 Color System</h2>
+              <p>主品牌色避开红绿交易语义；红绿只作为本地化市场状态。品牌核心由 Ink、Jade、Cobalt、Metal 和 Pearl 构成。</p>
+            </div>
+            <div class="grid">
+              <div class="swatches">
+                <div class="swatch" style="--color:#080D14;--on:#fff"><span>veil-ink</span><span>#080D14</span></div>
+                <div class="swatch" style="--color:#00C2A8;--on:#031813"><span>veil-jade</span><span>#00C2A8</span></div>
+                <div class="swatch" style="--color:#315CFF;--on:#fff"><span>veil-cobalt</span><span>#315CFF</span></div>
+                <div class="swatch" style="--color:#C8A45D;--on:#17120a"><span>veil-gold</span><span>#C8A45D</span></div>
+                <div class="swatch" style="--color:#F7FAFC;--on:#111827"><span>veil-pearl</span><span>#F7FAFC</span></div>
+                <div class="swatch" style="--color:#111827;--on:#fff"><span>veil-graphite</span><span>#111827</span></div>
+                <div class="swatch" style="--color:#8FD8FF;--on:#071522"><span>veil-ice</span><span>#8FD8FF</span></div>
+                <div class="swatch" style="--color:#D8E2EA;--on:#111827"><span>veil-line</span><span>#D8E2EA</span></div>
+              </div>
+              <article class="panel">
+                <div class="panel-body">
+                  <h3>Color ratio</h3>
+                  <p>大公司品牌系统里，比例比颜色本身更重要。Veil 应该让 Ink/Pearl 负责秩序，Jade/Cobalt 负责信号，Gold 只负责高端和稀缺。</p>
+                  <div class="ratio-bar" aria-label="Recommended color ratio">
+                    <i style="--color:#080D14"></i>
+                    <i style="--color:#F7FAFC"></i>
+                    <i style="--color:#00C2A8"></i>
+                    <i style="--color:#315CFF"></i>
+                    <i style="--color:#C8A45D"></i>
+                  </div>
+                </div>
+              </article>
+              <table class="token-table">
+                <thead>
+                  <tr><th>Token</th><th>Hex</th><th>Usage</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="code">--action-primary</td><td>#315CFF</td><td>主要按钮、交易确认、关键链接。</td></tr>
+                  <tr><td class="code">--signal-active</td><td>#00C2A8</td><td>概率曲线、活跃状态、数据高亮。</td></tr>
+                  <tr><td class="code">--accent-premium</td><td>#C8A45D</td><td>VIP、招商、线下高光，少量使用。</td></tr>
+                  <tr><td class="code">--market-up-global</td><td>#16A34A</td><td>欧美/全球默认涨色。</td></tr>
+                  <tr><td class="code">--market-down-global</td><td>#DC2626</td><td>欧美/全球默认跌色。</td></tr>
+                  <tr><td class="code">--market-up-east-asia</td><td>#E53935</td><td>中国、日本、韩国等红涨地区。</td></tr>
+                  <tr><td class="code">--market-down-east-asia</td><td>#059669</td><td>中国、日本、韩国等绿跌地区。</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="typography" class="section-pearl">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>04 Typography</h2>
+              <p>英文使用现代 grotesk/sans，中文使用高可读系统黑体。标题要克制有力，交易界面文字要紧凑清晰。</p>
+            </div>
+            <div class="type-specimen">
+              <div class="type-large">
+                <p class="eyebrow">Typeface behavior</p>
+                <h3>Market clarity, not hype.</h3>
+                <p>中文标题建议使用 600-750 字重，避免过度字距。数字和价格使用等宽或 tabular nums。</p>
+              </div>
+              <article class="panel">
+                <div class="panel-body">
+                  <h3>Type scale</h3>
+                  <div class="type-scale">
+                    <div class="type-row"><span>Display</span><strong style="font-size:44px">Veil Signal</strong></div>
+                    <div class="type-row"><span>H1</span><strong style="font-size:32px">预测市场品牌系统</strong></div>
+                    <div class="type-row"><span>H2</span><strong style="font-size:24px">Probability made readable</strong></div>
+                    <div class="type-row"><span>Body</span><strong style="font-size:16px;font-weight:520">用于 App、招商、社媒和线下的统一视觉语言。</strong></div>
+                    <div class="type-row"><span>Data</span><strong style="font-size:15px;font-variant-numeric:tabular-nums">72.4% · $1.28M · 04:32</strong></div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="imagery" class="section-dark">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>05 Imagery System</h2>
+              <p>图像系统的核心是“diamond as signal”。每张图像都应该有信息结构：负空间、信号主体、概率曲线、玻璃 UI 或微网格。</p>
+            </div>
+            <div class="grid cols-2">
+              <div class="image-card">
+                <img src="assets/veil-hero-diamond-v2.png" alt="Primary diamond hero image">
+                <div class="caption"><h3>Hero image</h3><p>官网首屏、品牌封面、发布会背景。</p></div>
+              </div>
+              <div class="image-card">
+                <img src="assets/veil-brand-pattern-v3.png" alt="Abstract Veil brand pattern">
+                <div class="caption"><h3>Brand pattern</h3><p>用于 slide divider、网页 section、包装纹理、背景层。</p></div>
+              </div>
+            </div>
+            <div class="standards" style="margin-top:16px">
+              <article class="panel"><div class="panel-body"><h3>Composition</h3><p>主体偏右或居中偏上，保留 30-45% 负空间给中英文字和 CTA。</p></div></article>
+              <article class="panel"><div class="panel-body"><h3>Lighting</h3><p>深墨底、边缘高光、低饱和金属反射。避免彩虹、烟雾和过度粒子。</p></div></article>
+              <article class="panel"><div class="panel-body"><h3>Data layer</h3><p>概率曲线、微点阵、玻璃卡片可以出现，但不得有乱码、假数字或可读假文案。</p></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="product">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>06 Product UI</h2>
+              <p>App 需要比品牌海报更轻、更清晰。浅色模式用 Pearl，关键动作用 Cobalt，数据活跃状态用 Jade，交易涨跌色按地区切换。</p>
+            </div>
+            <div class="ui-frame">
+              <div class="image-card short">
+                <img src="assets/veil-app-light-ui-v3.png" alt="Veil light mode product UI concept">
+                <div class="caption"><h3>Light mode product surface</h3><p>高频阅读和交易默认使用浅色界面。</p></div>
+              </div>
+              <div class="product-rules">
+                <article class="rule"><h3>Primary action</h3><p>买入、确认、创建市场等关键操作使用 Cobalt。不要用 Gold 做按钮。</p></article>
+                <article class="rule"><h3>Probability signal</h3><p>概率曲线和活跃市场使用 Jade，与涨跌色分离。</p></article>
+                <article class="rule"><h3>Surface density</h3><p>卡片半径 8px 内，信息密度适中，避免营销卡片堆叠。</p></article>
+                <article class="rule"><h3>Localization</h3><p>Up/Down 颜色地区化，同时保留箭头和文字，颜色不能是唯一线索。</p></article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="social" class="section-pearl">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>07 Social Media System</h2>
+              <p>社媒标准要可复用：同一组资产支持 X/LinkedIn、Instagram、微信、小红书、Telegram 和招商转发。原则是“强主视觉 + 清晰留白 + 可替换文字区”。</p>
+            </div>
+            <div class="social-grid">
+              <article class="format-card">
+                <div class="format-media"><img src="assets/veil-social-feed-open-v3.png" alt="Square social open layout"></div>
+                <div class="format-body">
+                  <h3>Feed open</h3>
+                  <p>1:1 方图，右侧/上方留白多，适合观点、公告、招商摘要。</p>
+                  <ul><li>文字占比 18-28%。</li><li>标题最多 2 行。</li><li>适合中英双语版本。</li></ul>
+                </div>
+              </article>
+              <article class="format-card">
+                <div class="format-media"><img src="assets/veil-social-feed-signal-v3.png" alt="Square social signal layout"></div>
+                <div class="format-body">
+                  <h3>Feed signal</h3>
+                  <p>1:1 方图，信息密度更高，适合市场洞察、趋势回顾和数据报告。</p>
+                  <ul><li>避免真实红绿 K 线。</li><li>保留底部品牌标签区。</li><li>CTA 用 Cobalt。</li></ul>
+                </div>
+              </article>
+              <article class="format-card story">
+                <div class="format-media"><img src="assets/veil-social-story-v3.png" alt="Vertical story format"></div>
+                <div class="format-body">
+                  <h3>Story and reel</h3>
+                  <p>9:16 竖版，上方 25% 留给标题，中段放钻石信号，下方放 CTA 或二维码。</p>
+                </div>
+              </article>
+              <article class="format-card banner">
+                <div class="format-media"><img src="assets/veil-social-banner-v3.png" alt="Wide social banner"></div>
+                <div class="format-body">
+                  <h3>Banner and header</h3>
+                  <p>适合 X header、LinkedIn banner、官网 section、招商 deck opening。左侧留给标题，右侧放钻石信号。横幅文字不要超过 14 个英文词或 18 个中文字符。</p>
+                  <ul><li>X/LinkedIn：主标题 + 一句副标题。</li><li>官网：可叠加导航和 CTA。</li><li>活动：可裁成 16:9 或 21:9。</li></ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="offline" class="section-dark">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>08 Offline and Investor Deck</h2>
+              <p>线下和招商材料应该更“少而贵”：深墨大面积、钻石主视觉、细金线和低饱和灯光。不要做加密展会式霓虹堆叠。</p>
+            </div>
+            <div class="grid cols-2">
+              <div class="image-card">
+                <img src="assets/veil-event-booth-v3.png" alt="Veil event booth concept">
+                <div class="caption"><h3>Event booth</h3><p>适合展台、发布会、品牌墙、VIP lounge。</p></div>
+              </div>
+              <div class="image-card">
+                <img src="assets/veil-investor-bg-v2.png" alt="Investor presentation background">
+                <div class="caption"><h3>Investor background</h3><p>适合招商 PPT、封面、章节页和路演屏幕。</p></div>
+              </div>
+            </div>
+            <div class="standards" style="margin-top:16px">
+              <article class="panel"><div class="panel-body"><h3>Deck cover</h3><p>深底图像 + 白色标题 + Jade 小标题。Gold 只做分割线或标签。</p></div></article>
+              <article class="panel"><div class="panel-body"><h3>Print</h3><p>浅底单页使用 Pearl 背景，图像裁切为 40-55% 面积，避免全黑耗墨和阅读疲劳。</p></div></article>
+              <article class="panel"><div class="panel-body"><h3>Spatial</h3><p>展台使用大面积主视觉和低密度信息，禁止把 App 截图、数据和招商文字堆满墙面。</p></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="rules">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>09 Standards and Misuse</h2>
+              <p>品牌要规模化，就需要清晰的边界。下面是建议写进 brand guideline 的正反标准。</p>
+            </div>
+            <div class="do-dont">
+              <article class="panel do">
+                <div class="panel-body">
+                  <h3>Do</h3>
+                  <ul>
+                    <li>用 Ink/Pearl 控制画面秩序，用 Jade/Cobalt 传达信号和行动。</li>
+                    <li>让钻石图形保持清晰轮廓，避免过度材质化。</li>
+                    <li>社媒模板保留固定留白区，便于中英双语替换。</li>
+                    <li>交易色使用地区化 token，并搭配文字和箭头。</li>
+                    <li>招商材料使用更深、更克制、更高级的光线。</li>
+                  </ul>
+                </div>
+              </article>
+              <article class="panel dont">
+                <div class="panel-body">
+                  <h3>Do Not</h3>
+                  <ul>
+                    <li>不要把红绿作为主品牌色，也不要在 logo 里加入涨跌色。</li>
+                    <li>不要使用彩虹霓虹、币圈金币、赌场筹码、骰子或体育博彩符号。</li>
+                    <li>不要大面积使用金色，避免奢侈品/博彩促销感。</li>
+                    <li>不要生成带乱码文字的图像作为正式物料。</li>
+                    <li>不要让 UI 卡片圆角过大或卡片套卡片，避免 SaaS 模板感。</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="assets" class="section-pearl">
+          <div class="section-inner">
+            <div class="section-head">
+              <h2>10 Asset Library</h2>
+              <p>所有图像已复制到项目内 `assets/`，可以被当前 HTML、后续 PPT、官网原型或社媒模板继续引用。</p>
+            </div>
+            <div class="asset-table">
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-hero-diamond-v2.png" alt=""></div>
+                <div><h3>Hero diamond</h3><p>官网首屏、横版封面、品牌视频。</p></div>
+                <div class="asset-path">assets/veil-hero-diamond-v2.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-app-icon-v2.png" alt=""></div>
+                <div><h3>App icon concept</h3><p>App icon 和 logo 材质参考。</p></div>
+                <div class="asset-path">assets/veil-app-icon-v2.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-app-light-ui-v3.png" alt=""></div>
+                <div><h3>Light UI concept</h3><p>App 浅色界面、产品页、功能宣传。</p></div>
+                <div class="asset-path">assets/veil-app-light-ui-v3.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-social-feed-open-v3.png" alt=""></div>
+                <div><h3>Social feed open</h3><p>方图留白模板，适合观点和公告。</p></div>
+                <div class="asset-path">assets/veil-social-feed-open-v3.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-social-feed-signal-v3.png" alt=""></div>
+                <div><h3>Social feed signal</h3><p>方图高信息模板，适合洞察和报告。</p></div>
+                <div class="asset-path">assets/veil-social-feed-signal-v3.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-social-story-v3.png" alt=""></div>
+                <div><h3>Story vertical</h3><p>9:16 竖版短视频和 story 背景。</p></div>
+                <div class="asset-path">assets/veil-social-story-v3.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-social-banner-v3.png" alt=""></div>
+                <div><h3>Social banner</h3><p>X/LinkedIn header、官网横幅、deck opening。</p></div>
+                <div class="asset-path">assets/veil-social-banner-v3.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-event-booth-v3.png" alt=""></div>
+                <div><h3>Event booth</h3><p>线下展台和发布会空间方向。</p></div>
+                <div class="asset-path">assets/veil-event-booth-v3.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-investor-bg-v2.png" alt=""></div>
+                <div><h3>Investor background</h3><p>招商、投资人材料、PPT 章节页。</p></div>
+                <div class="asset-path">assets/veil-investor-bg-v2.png</div>
+              </div>
+              <div class="asset-row">
+                <div class="asset-thumb"><img src="assets/veil-brand-pattern-v3.png" alt=""></div>
+                <div><h3>Brand pattern</h3><p>网页背景、slide divider、包装/印刷纹理。</p></div>
+                <div class="asset-path">assets/veil-brand-pattern-v3.png</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="section-inner">
+          Veil Brand System · Built from research, color strategy, and image2-generated visual assets · Recommended direction: Obsidian Jade
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

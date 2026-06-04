@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veil / 预测所 Branding Research & Plan</title>
+    <style>
+      :root {
+        --graphite: #101318;
+        --graphite-2: #171b22;
+        --ink: #20252c;
+        --slate: #68717e;
+        --line: #d9dee4;
+        --paper: #f7fafa;
+        --white: #ffffff;
+        --teal: #18c7b6;
+        --blue: #315cff;
+        --amber: #f2b84b;
+        --mist: #e9f2f1;
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+          sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: rgba(24, 199, 182, 0.55);
+        text-underline-offset: 3px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 88vh;
+        display: grid;
+        align-items: end;
+        isolation: isolate;
+        color: var(--white);
+        overflow: hidden;
+        background: var(--graphite);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(180deg, rgba(16, 19, 24, 0.12), rgba(16, 19, 24, 0.92)),
+          url("assets/veil-key-visual.png") center / cover no-repeat;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 34vh;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(16, 19, 24, 0), var(--graphite));
+      }
+
+      .nav {
+        position: absolute;
+        inset: 0 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        padding: 22px clamp(20px, 5vw, 72px);
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .brand-lockup {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+      }
+
+      .diamond-mark {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .hero-content {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 140px 0 72px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--teal);
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin-bottom: 18px;
+        font-size: clamp(48px, 8vw, 96px);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .hero-lede {
+        max-width: 700px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: clamp(18px, 2.1vw, 24px);
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 32px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 7px 11px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+        backdrop-filter: blur(8px);
+      }
+
+      main {
+        background: var(--paper);
+      }
+
+      section {
+        padding: 72px clamp(20px, 5vw, 72px);
+      }
+
+      .section-dark {
+        color: var(--white);
+        background: var(--graphite);
+      }
+
+      .section-mist {
+        background: var(--mist);
+      }
+
+      .container {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1fr);
+        gap: 32px;
+        align-items: start;
+        margin-bottom: 34px;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: clamp(30px, 4vw, 48px);
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
+        color: var(--slate);
+        font-size: 17px;
+      }
+
+      .section-dark .section-heading p,
+      .section-dark .muted {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        min-width: 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.78);
+        padding: 22px;
+      }
+
+      .section-dark .card {
+        border-color: rgba(255, 255, 255, 0.13);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .card h3 {
+        margin-bottom: 10px;
+        font-size: 19px;
+        line-height: 1.2;
+      }
+
+      .card p,
+      .card li {
+        color: var(--slate);
+        font-size: 15px;
+      }
+
+      .section-dark .card p,
+      .section-dark .card li {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 16px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        color: var(--graphite);
+        background: color-mix(in srgb, var(--teal), white 74%);
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .section-dark .tag {
+        color: var(--white);
+        background: rgba(24, 199, 182, 0.18);
+      }
+
+      .statement {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .statement-main {
+        padding: 34px;
+        border-radius: var(--radius);
+        color: var(--white);
+        background: linear-gradient(135deg, #111318, #1a2228 62%, #172425);
+      }
+
+      .statement-main h2 {
+        max-width: 760px;
+        margin-bottom: 16px;
+      }
+
+      .statement-main p {
+        max-width: 760px;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 18px;
+      }
+
+      .quote-box {
+        display: grid;
+        align-content: center;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        padding: 28px;
+      }
+
+      .quote-box strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 32px;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .visual-frame {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .visual-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .caption {
+        margin: 12px 0 0;
+        color: var(--slate);
+        font-size: 13px;
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .list li + li {
+        margin-top: 8px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 12px;
+      }
+
+      .phase {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr) 180px;
+        gap: 18px;
+        align-items: start;
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .phase:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .phase strong {
+        color: var(--graphite);
+      }
+
+      .phase p {
+        margin: 0;
+        color: var(--slate);
+        font-size: 15px;
+      }
+
+      .phase .output {
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .palette {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .swatch {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .swatch-color {
+        height: 82px;
+      }
+
+      .swatch-label {
+        padding: 12px;
+        font-size: 12px;
+      }
+
+      .swatch-label strong {
+        display: block;
+      }
+
+      .tone-table {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .tone-table .card:first-child {
+        border-top: 4px solid var(--teal);
+      }
+
+      .tone-table .card:last-child {
+        border-top: 4px solid #d85c5c;
+      }
+
+      .sources {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding-left: 18px;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 36px clamp(20px, 5vw, 72px);
+        color: rgba(255, 255, 255, 0.6);
+        background: #090b0e;
+        font-size: 13px;
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .section-heading,
+        .statement,
+        .split,
+        .grid,
+        .grid.two,
+        .tone-table {
+          grid-template-columns: 1fr;
+        }
+
+        .phase {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
+        .palette {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero {
+          min-height: 82vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="页面导航">
+        <div class="brand-lockup">
+          <svg class="diamond-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 3 61 32 32 61 3 32Z" fill="none" stroke="#f7fafa" stroke-width="3" />
+            <path d="M32 3v58M3 32h58M16 16l16 45 16-45" fill="none" stroke="#18c7b6" stroke-width="2" opacity=".9" />
+            <path d="M32 12 42 32 32 50 22 32Z" fill="none" stroke="#f2b84b" stroke-width="2" opacity=".85" />
+          </svg>
+          <span>Veil / 预测所</span>
+        </div>
+        <div class="nav-links">
+          <a href="#research">Research</a>
+          <a href="#strategy">Strategy</a>
+          <a href="#visual">Visual</a>
+          <a href="#execution">Execution</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <p class="eyebrow">Branding Research & Execution Plan</p>
+        <h1>Veil 预测所</h1>
+        <p class="hero-lede">
+          一个把未来事件的不确定性变成实时概率与价格的预测市场品牌方案。
+          核心隐喻：用钻石切面揭开隐藏概率。
+        </p>
+        <div class="hero-meta">
+          <span class="pill">Where uncertainty gets priced.</span>
+          <span class="pill">让不确定性被市场定价</span>
+          <span class="pill">Diamond lens / Probability prism</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="research">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">01 / Research Frame</p>
+              <h2>先研究品类，再定义 Veil。</h2>
+            </div>
+            <p>
+              预测市场处在金融交易、信息市场、公共事件、社群判断和合规监管之间。
+              品牌不能只讲“预测”，更要讲清楚可信度、透明度、结算规则和风险边界。
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <span class="tag">竞品</span>
+              <h3>Polymarket</h3>
+              <p>
+                核心语言是世界级预测市场、概率价格、群体智慧和实时市场信号。
+                品牌更互联网、更交易、更开放，但也更容易被外界和投机叙事绑定。
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">竞品</span>
+              <h3>Kalshi</h3>
+              <p>
+                核心语言是受监管交易所和事件合约，强调 CFTC、DCM、合规、透明和金融基础设施。
+                品牌更制度化，也更适合参考它的信任表达。
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">竞品</span>
+              <h3>Manifold / PredictIt</h3>
+              <p>
+                Manifold 更像社交预测社区，PredictIt 更偏政治研究和受限实验环境。
+                这说明预测市场可以有多种气质：社区、研究、金融、媒体信号。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-mist">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / Key Findings</p>
+              <h2>Veil 的机会在“可信的神秘感”。</h2>
+            </div>
+            <p>
+              赛道里的强者已经分别占住了“最大市场”和“受监管交易所”。
+              Veil 更适合成为一个冷静、锋利、透明、有研究所气质的预测市场品牌。
+            </p>
+          </div>
+
+          <div class="grid two">
+            <article class="card">
+              <h3>命名机会</h3>
+              <p>
+                Veil 暗示“被遮住的东西”。它天然适合解释信息不透明、未来不确定、市场揭示概率。
+                中文“预测所”有研究所和交易所的双重机构感，避免直接滑向博彩语境。
+              </p>
+            </article>
+            <article class="card">
+              <h3>命名风险</h3>
+              <p>
+                Veil 在预测市场语境并非完全空白，历史上有过基于 Augur 的 Veil 项目，也存在相近命名结果。
+                因此建议保留 Veil，但避免使用 “Veil Markets” 作为完整定位，并尽快做商标、域名、社媒检索。
+              </p>
+            </article>
+            <article class="card">
+              <h3>叙事风险</h3>
+              <p>
+                预测市场容易被误解为赌博、内幕交易或错误信息扩散。品牌文案要避免刺激性赚钱语言，
+                应该强调概率、价格、结算来源、透明规则和风险意识。
+              </p>
+            </article>
+            <article class="card">
+              <h3>视觉机会</h3>
+              <p>
+                钻石 icon 可以避开普通金融箭头、K 线、筹码和水晶球。
+                它可以代表切面、折射、透明、压力成形和稀缺信号，是 Veil 最有辨识度的资产。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="strategy">
+        <div class="container">
+          <div class="statement">
+            <div class="statement-main">
+              <p class="eyebrow">03 / Brand Position</p>
+              <h2>Veil is a market lens for hidden probabilities.</h2>
+              <p>
+                Veil 不是水晶球，也不是赌场。它是一个把分散信息、判断和风险压缩为实时价格的预测市场。
+                价格不是确定答案，而是一种公开、可争论、可交易的概率。
+              </p>
+            </div>
+            <aside class="quote-box">
+              <strong>让不确定性被市场定价。</strong>
+              <p class="muted">
+                主 slogan 推荐：Where uncertainty gets priced.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">04 / Narrative</p>
+              <h2>品牌叙事：揭开概率，而不是承诺答案。</h2>
+            </div>
+            <p>
+              Veil 的叙事应围绕“显影”而不是“预言”。世界被新闻、情绪、专家意见和噪音遮住，
+              预测市场让这些信号进入同一个价格机制。
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <span class="tag">品牌故事</span>
+              <h3>The Veil</h3>
+              <p>
+                未来不是一个等待宣布的答案，而是一组不断变化的概率。
+                Veil 存在的意义，是让人看到事件背后正在形成的市场共识。
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">产品角色</span>
+              <h3>The Market Lens</h3>
+              <p>
+                用户不是被动读新闻，而是通过市场价格看见群体判断。
+                Veil 把判断、风险和信念变成可观察的价格。
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">品牌边界</span>
+              <h3>Not A Casino</h3>
+              <p>
+                不说“一夜暴富”和“稳赚”。重点讲概率、规则、结算、透明、信息质量和用户自己的判断责任。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="visual">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">05 / Icon System</p>
+              <h2>钻石不是宝石，是概率棱镜。</h2>
+            </div>
+            <p>
+              推荐将 icon 定义为 Diamond Lens / Probability Prism。
+              小尺寸时保留钻石轮廓与中央 V；大尺寸时展示切面、折射和细微信号线。
+            </p>
+          </div>
+
+          <div class="split">
+            <div>
+              <h3>Icon 含义</h3>
+              <ul class="list">
+                <li><strong>切面：</strong>同一个事件有多个角度。</li>
+                <li><strong>折射：</strong>信息进入市场，折射成概率。</li>
+                <li><strong>透明：</strong>价格、规则、结算来源需要清楚。</li>
+                <li><strong>压力成形：</strong>真正的判断力来自不确定性下的压力。</li>
+                <li><strong>负形 V：</strong>像被掀开的 veil，也锁住英文品牌首字母。</li>
+              </ul>
+            </div>
+            <figure class="visual-frame">
+              <img src="assets/veil-icon-concepts.png" alt="Veil diamond icon concept sheet" />
+            </figure>
+          </div>
+          <p class="caption">
+            Image 2 生成图：钻石 icon 三方向概念板。正式 logo 应基于这个方向继续矢量化、网格化和商标排重。
+          </p>
+        </div>
+      </section>
+
+      <section class="section-mist">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">06 / Visual Language</p>
+              <h2>冷静、锋利、透明，带一点神秘感。</h2>
+            </div>
+            <p>
+              整体气质应更像金融信息产品和研究工具，而不是博彩平台。
+              图形语言使用切面、透明层、概率曲线、结算时间轴和价格深度。
+            </p>
+          </div>
+
+          <div class="palette" aria-label="建议色彩系统">
+            <div class="swatch">
+              <div class="swatch-color" style="background: #101318"></div>
+              <div class="swatch-label"><strong>Graphite</strong>#101318</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #f7fafa"></div>
+              <div class="swatch-label"><strong>Diamond</strong>#F7FAFA</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #18c7b6"></div>
+              <div class="swatch-label"><strong>Signal Teal</strong>#18C7B6</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #315cff"></div>
+              <div class="swatch-label"><strong>Probability</strong>#315CFF</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #f2b84b"></div>
+              <div class="swatch-label"><strong>Amber</strong>#F2B84B</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #68717e"></div>
+              <div class="swatch-label"><strong>Slate</strong>#68717E</div>
+            </div>
+          </div>
+
+          <div class="grid two" style="margin-top: 18px">
+            <article class="card">
+              <h3>字体方向</h3>
+              <p>
+                英文使用 Inter、Geist 或 Neue Haas Grotesk 风格；中文使用思源黑体、Noto Sans SC 或阿里巴巴普惠体；
+                数据数字可用 IBM Plex Mono 或 JetBrains Mono。
+              </p>
+            </article>
+            <article class="card">
+              <h3>产品界面方向</h3>
+              <p>
+                事件卡片必须优先展示标题、实时概率、价格、成交量、结算来源和风险提示。
+                视觉不要过度装饰，要让用户快速判断市场状态。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">07 / Voice</p>
+              <h2>文案系统要像市场，而不是像赌场。</h2>
+            </div>
+            <p>
+              Veil 的语气应该聪明、克制、清楚、有制度感。英文优先但中文要能自然落地。
+            </p>
+          </div>
+
+          <div class="tone-table">
+            <article class="card">
+              <h3>应该说</h3>
+              <ul class="list">
+                <li>Price uncertainty.</li>
+                <li>Market-implied probability.</li>
+                <li>Trade your view on real-world events.</li>
+                <li>看见概率，而不是噪音。</li>
+                <li>把判断变成市场。</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>避免说</h3>
+              <ul class="list">
+                <li>稳赚、 guaranteed、easy money。</li>
+                <li>一夜暴富、all in、bet big。</li>
+                <li>真相机器、一定预测未来。</li>
+                <li>任何像赌场筹码、中奖刺激、下注狂欢的表达。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="execution" class="section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">08 / Execution Plan</p>
+              <h2>详细执行方案。</h2>
+            </div>
+            <p>
+              下面是从现在到完整 Brand Book、Logo、UI 方向和产品落地的一套可执行路径。
+              每一步都有明确产出，避免停留在概念层。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="timeline">
+            <div class="phase">
+              <strong>Phase 1</strong>
+              <p>
+                深度 research：竞品、监管叙事、用户心理、视觉排重、域名和商标初筛。
+                重点验证 Veil 的命名风险和差异化空间。
+              </p>
+              <div class="output">Research Memo</div>
+            </div>
+            <div class="phase">
+              <strong>Phase 2</strong>
+              <p>
+                品牌战略收敛：定位、目标用户、价值主张、slogan、英文/中文一句话介绍、
+                以及“不是什么”的品牌边界。
+              </p>
+              <div class="output">Strategy Deck</div>
+            </div>
+            <div class="phase">
+              <strong>Phase 3</strong>
+              <p>
+                叙事成稿：品牌故事、官网 hero、产品介绍、投资人版本、媒体版本、
+                风险提示和结算规则说明语气。
+              </p>
+              <div class="output">Copy System</div>
+            </div>
+            <div class="phase">
+              <strong>Phase 4</strong>
+              <p>
+                Logo/icon 设计：以钻石为核心做 3 条矢量方向，完成小尺寸测试、
+                黑白版、深浅底、favicon、app icon 和社交头像。
+              </p>
+              <div class="output">Logo Kit</div>
+            </div>
+            <div class="phase">
+              <strong>Phase 5</strong>
+              <p>
+                UI 视觉系统：市场卡片、概率图表、Yes/No 交易控件、结算状态、风险提示、
+                watchlist、移动端信息密度。
+              </p>
+              <div class="output">Product UI Direction</div>
+            </div>
+            <div class="phase">
+              <strong>Phase 6</strong>
+              <p>
+                Brand Book 整合：品牌故事、视觉规范、组件示例、文案规范、禁用项、
+                社媒和 pitch deck 样式。
+              </p>
+              <div class="output">Brand Book v1</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">09 / Generated Direction</p>
+              <h2>主视觉方向。</h2>
+            </div>
+            <p>
+              这张 Image 2 生成图可以作为品牌 mood 的第一版：钻石棱镜、市场网格、概率光线。
+              正式生产时建议继续拆成可控的 SVG icon、WebGL/Canvas 动效和 UI 图形系统。
+            </p>
+          </div>
+          <figure class="visual-frame">
+            <img src="assets/veil-key-visual.png" alt="Veil brand key visual with a diamond prism" />
+          </figure>
+          <p class="caption">
+            使用建议：官网首屏背景、pitch deck 封面、品牌探索板。不要直接当作最终 logo。
+          </p>
+        </div>
+      </section>
+
+      <section class="section-mist">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">10 / Deliverables</p>
+              <h2>下一步交付清单。</h2>
+            </div>
+            <p>
+              如果继续推进，建议按下面清单生产完整品牌资产。
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <h3>Brand Strategy</h3>
+              <p>定位、品牌叙事、目标用户、竞品差异化、语气系统、中英文 tagline。</p>
+            </article>
+            <article class="card">
+              <h3>Visual Identity</h3>
+              <p>logo、diamond icon、色彩、字体、图形语言、动效原则、使用规范。</p>
+            </article>
+            <article class="card">
+              <h3>Product System</h3>
+              <p>市场卡片、概率图表、交易模块、风险提示、结算模块和移动端信息结构。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Sources</p>
+              <h2>参考来源。</h2>
+            </div>
+            <p>
+              本方案基于浏览器 research、竞品官方资料和公开监管/行业报道整理。
+            </p>
+          </div>
+          <ul class="sources">
+            <li><a href="https://www.cftc.gov/LearnandProtect/PredictionMarkets">CFTC: Prediction Markets</a></li>
+            <li><a href="https://kpmg.com/kpmg-us/content/dam/kpmg/pdf/2026/prediction-markets-paths-to-entry.pdf">KPMG: Prediction Markets, Paths to Entry</a></li>
+            <li><a href="https://help.polymarket.com/en/articles/13364060-what-is-polymarket">Polymarket Help: What is Polymarket?</a></li>
+            <li><a href="https://polymarket.com/brand">Polymarket Brand</a></li>
+            <li><a href="https://help.kalshi.com/en/articles/13823763-what-is-kalshi">Kalshi Help: What is Kalshi?</a></li>
+            <li><a href="https://help.kalshi.com/en/articles/13823765-how-is-kalshi-regulated">Kalshi Help: How is Kalshi regulated?</a></li>
+            <li><a href="https://apnews.com/article/kalshi-polymarket-prediction-markets-cftc-trump-insider-trading-fe7435cf6efefd922aa2edb9a0e80a05">AP: Kalshi and Polymarket insider-trading rules</a></li>
+            <li><a href="https://decrypt.co/7864/prediction-market-veil-shuts-down">Decrypt: Historical Veil prediction market shutdown</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Veil / 预测所 Branding Plan. Generated image assets saved in the project assets folder.
+    </footer>
+  </body>
+</html>

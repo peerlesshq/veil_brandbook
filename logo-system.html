@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veil / 预测所 Logo Design System</title>
+    <style>
+      :root {
+        --graphite: #101318;
+        --ink: #20252c;
+        --slate: #68717e;
+        --line: #d9dee4;
+        --paper: #f7fafa;
+        --white: #ffffff;
+        --teal: #18c7b6;
+        --blue: #315cff;
+        --amber: #f2b84b;
+        --mist: #e9f2f1;
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+          sans-serif;
+        line-height: 1.55;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: rgba(24, 199, 182, 0.55);
+        text-underline-offset: 3px;
+      }
+
+      .hero {
+        min-height: 86vh;
+        position: relative;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        color: var(--white);
+        background: var(--graphite);
+        isolation: isolate;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(16, 19, 24, 0.95), rgba(16, 19, 24, 0.56) 52%, rgba(16, 19, 24, 0.2)),
+          url("assets/veil-logo-3d-render-v2.png") right center / contain no-repeat,
+          var(--graphite);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 28vh;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(16, 19, 24, 0), var(--graphite));
+      }
+
+      .nav {
+        position: absolute;
+        inset: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 22px 56px;
+      }
+
+      .nav img {
+        width: 172px;
+        height: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .hero-content {
+        width: min(1120px, calc(100% - 112px));
+        margin: 0 auto;
+        padding: 144px 0 72px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--teal);
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin-bottom: 18px;
+        font-size: 76px;
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .hero p.lede {
+        max-width: 700px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 21px;
+      }
+
+      .system-pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 7px 11px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+        backdrop-filter: blur(8px);
+      }
+
+      section {
+        padding: 72px 56px;
+      }
+
+      .section-dark {
+        color: var(--white);
+        background: var(--graphite);
+      }
+
+      .section-mist {
+        background: var(--mist);
+      }
+
+      .container {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+        gap: 32px;
+        align-items: start;
+        margin-bottom: 34px;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 42px;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 19px;
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+
+      .section-heading p,
+      .muted,
+      .card p,
+      .card li,
+      .caption {
+        color: var(--slate);
+      }
+
+      .section-dark .section-heading p,
+      .section-dark .muted,
+      .section-dark .card p,
+      .section-dark .card li {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        min-width: 0;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .section-dark .card {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .asset-frame {
+        display: grid;
+        place-items: center;
+        min-height: 230px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .asset-frame.dark {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: var(--graphite);
+      }
+
+      .asset-frame.grid-bg {
+        background:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px),
+          var(--white);
+        background-size: 32px 32px;
+      }
+
+      .asset-frame img.logo-wide {
+        width: min(82%, 420px);
+      }
+
+      .asset-frame img.mark {
+        width: 148px;
+      }
+
+      .asset-frame img.app {
+        width: 148px;
+        border-radius: 22px;
+      }
+
+      .logo-showcase {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .image-panel {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .image-panel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-panel.contain img {
+        object-fit: contain;
+        background: var(--white);
+      }
+
+      .caption {
+        margin: 12px 0 0;
+        font-size: 13px;
+      }
+
+      .spec-list {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .spec-list li + li {
+        margin-top: 8px;
+      }
+
+      .clearspace {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 280px;
+        border: 1px dashed #aab3bd;
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .clearspace::before {
+        content: "X";
+        position: absolute;
+        inset: 18px auto auto 18px;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--teal);
+        color: var(--teal);
+        font-weight: 750;
+      }
+
+      .clearspace img {
+        width: 160px;
+      }
+
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .swatch {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .swatch div:first-child {
+        height: 84px;
+      }
+
+      .swatch div:last-child {
+        padding: 12px;
+        font-size: 12px;
+      }
+
+      .swatch strong {
+        display: block;
+      }
+
+      .usage {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .usage .card:first-child {
+        border-top: 4px solid var(--teal);
+      }
+
+      .usage .card:last-child {
+        border-top: 4px solid #d85c5c;
+      }
+
+      .file-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .file-link {
+        display: block;
+        padding: 14px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius);
+        color: rgba(255, 255, 255, 0.84);
+        background: rgba(255, 255, 255, 0.045);
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 34px 56px;
+        color: rgba(255, 255, 255, 0.62);
+        background: #090b0e;
+        font-size: 13px;
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          padding: 20px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero-content {
+          width: calc(100% - 40px);
+          padding-bottom: 54px;
+        }
+
+        h1 {
+          font-size: 46px;
+        }
+
+        h2 {
+          font-size: 32px;
+        }
+
+        section {
+          padding: 54px 20px;
+        }
+
+        .section-heading,
+        .grid,
+        .grid.two,
+        .logo-showcase,
+        .usage,
+        .file-list {
+          grid-template-columns: 1fr;
+        }
+
+        .swatches {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="Logo system navigation">
+        <img src="assets/veil-logo-horizontal-reverse.svg" alt="Veil 预测所" />
+        <div class="nav-links">
+          <a href="#assets">Assets</a>
+          <a href="#geometry">Geometry</a>
+          <a href="#lockups">Lockups</a>
+          <a href="#rules">Rules</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <p class="eyebrow">Logo Design System v1</p>
+        <h1>Veil / 预测所基础标识系统</h1>
+        <p class="lede">
+          以 Veil Aperture 作为核心标识：一个 45° 钻石外框打开出 V 形概率窗口，
+          表达“隐藏信息被市场揭示为概率”。
+        </p>
+        <div class="system-pill-row">
+          <span class="pill">Veil Aperture</span>
+          <span class="pill">3D Render</span>
+          <span class="pill">Flat SVG</span>
+          <span class="pill">Lockups</span>
+          <span class="pill">Usage Rules</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="assets">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">01 / Generated Assets</p>
+              <h2>3D 用于品牌场景，平面用于正式系统。</h2>
+            </div>
+            <p>
+              3D render 可以进入官网首屏、pitch deck、发布物料；正式 logo 则以 SVG 平面系统为准。
+              这能保证大型公司需要的可缩放、可审查、可复现和多场景一致性。
+            </p>
+          </div>
+
+          <div class="grid two">
+            <figure class="image-panel">
+              <img src="assets/veil-logo-3d-render-v2.png" alt="Veil 3D aperture logo render" />
+            </figure>
+            <figure class="image-panel contain">
+              <img src="assets/veil-logo-flat-system-v2.svg" alt="Veil flat aperture logo system board" />
+            </figure>
+          </div>
+
+          <div class="grid two" style="margin-top: 16px">
+            <article class="card">
+              <h3>3D Logo Render</h3>
+              <p>
+                用于高冲击品牌场景。保留玻璃、金属、蓝色和琥珀色信号光，突出“概率棱镜”。
+                不建议用于小尺寸、合同、法务、favicon 或单色印刷。
+              </p>
+            </article>
+            <article class="card">
+              <h3>Flat SVG System</h3>
+              <p>
+                新版平面系统使用 45° Veil Aperture SVG，避免过度靠近普通珠宝图案。
+                产品、导航、favicon、app icon 和品牌规范都以这套 SVG 为准。
+              </p>
+            </article>
+          </div>
+          <p class="caption">
+            Image 2 新版 3D 资产已保存为 assets/veil-logo-3d-render-v2.png；正式平面系统保存为 assets/veil-logo-flat-system-v2.svg。
+          </p>
+        </div>
+      </section>
+
+      <section id="geometry" class="section-mist">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / Master Mark</p>
+              <h2>主标：Veil Aperture。</h2>
+            </div>
+            <p>
+              主标不做普通宝石图案，而是一个打开的概率窗口。外部是钻石边界，内部是 V 形 aperture，
+              左右辅以 teal 和 amber 两个信号面。
+            </p>
+          </div>
+
+          <div class="grid">
+            <article>
+              <div class="asset-frame grid-bg">
+                <img class="mark" src="assets/veil-mark-primary.svg" alt="Veil primary mark" />
+              </div>
+              <p class="caption">Primary mark: light background</p>
+            </article>
+            <article>
+              <div class="asset-frame grid-bg">
+                <img class="mark" src="assets/veil-mark-outline.svg" alt="Veil outline mark" />
+              </div>
+              <p class="caption">Outline mark: technical / mono contexts</p>
+            </article>
+            <article>
+              <div class="asset-frame dark">
+                <img class="app" src="assets/veil-app-icon.svg" alt="Veil app icon" />
+              </div>
+              <p class="caption">App icon: dark institutional container</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">03 / Geometry Notes</p>
+              <h2>几何原则。</h2>
+            </div>
+            <p>
+              标识应保持严格对称和 45° 结构。中心 V 是品牌识别核心，不能被细节、纹理或高光吞掉。
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <h3>Outer Diamond</h3>
+              <p>外轮廓为 45° diamond，代表市场切面、价值压缩和清晰边界。</p>
+            </article>
+            <article class="card">
+              <h3>Central Aperture</h3>
+              <p>中心 V 形窗口代表 Veil 被打开，同时锁定英文首字母 V。</p>
+            </article>
+            <article class="card">
+              <h3>Signal Planes</h3>
+              <p>teal 和 amber 是左右两侧的市场信号面，不是装饰色。使用面积必须克制。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="lockups" class="section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">04 / Logo Lockups</p>
+              <h2>标准锁定组合。</h2>
+            </div>
+            <p>
+              第一优先级是英文 Veil，中文“预测所”作为二级描述。中文名不要和英文争夺主视觉权重。
+            </p>
+          </div>
+
+          <div class="grid two">
+            <article>
+              <div class="asset-frame">
+                <img class="logo-wide" src="assets/veil-logo-horizontal.svg" alt="Veil horizontal logo positive" />
+              </div>
+              <p class="caption">Positive lockup: light background</p>
+            </article>
+            <article>
+              <div class="asset-frame dark">
+                <img class="logo-wide" src="assets/veil-logo-horizontal-reverse.svg" alt="Veil horizontal logo reverse" />
+              </div>
+              <p class="caption">Reverse lockup: dark background</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">05 / Clearspace & Size</p>
+              <h2>留白和最小尺寸。</h2>
+            </div>
+            <p>
+              大型公司级 logo system 的核心不是“好看”，而是任何团队拿去用都不会变形、拥挤或失去辨识度。
+            </p>
+          </div>
+
+          <div class="grid two">
+            <article>
+              <div class="clearspace">
+                <img src="assets/veil-mark-primary.svg" alt="Veil mark clearspace" />
+              </div>
+              <p class="caption">Clearspace: X = mark width / 6。四周至少保留 1X。</p>
+            </article>
+            <article class="card">
+              <h3>Minimum Size</h3>
+              <ul class="spec-list">
+                <li>Digital mark: 20px minimum. Below 28px use simplified mark only.</li>
+                <li>Digital horizontal lockup: 112px width minimum.</li>
+                <li>Print mark: 6mm minimum.</li>
+                <li>Print horizontal lockup: 28mm width minimum.</li>
+                <li>App icon: keep central mark optically centered, never crop the diamond.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-mist">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">06 / Color</p>
+              <h2>基础色彩。</h2>
+            </div>
+            <p>
+              graphite 建立制度感，diamond white 建立透明感，teal 和 amber 作为市场信号色。
+            </p>
+          </div>
+
+          <div class="swatches">
+            <div class="swatch">
+              <div style="background:#101318"></div>
+              <div><strong>Graphite</strong>#101318</div>
+            </div>
+            <div class="swatch">
+              <div style="background:#F7FAFA"></div>
+              <div><strong>Diamond</strong>#F7FAFA</div>
+            </div>
+            <div class="swatch">
+              <div style="background:#18C7B6"></div>
+              <div><strong>Signal Teal</strong>#18C7B6</div>
+            </div>
+            <div class="swatch">
+              <div style="background:#315CFF"></div>
+              <div><strong>Probability Blue</strong>#315CFF</div>
+            </div>
+            <div class="swatch">
+              <div style="background:#F2B84B"></div>
+              <div><strong>Amber Signal</strong>#F2B84B</div>
+            </div>
+            <div class="swatch">
+              <div style="background:#68717E"></div>
+              <div><strong>Slate</strong>#68717E</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="rules">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">07 / Usage Rules</p>
+              <h2>使用规范。</h2>
+            </div>
+            <p>
+              这些规则用于保证 Veil 在产品、官网、社交、融资材料和合作物料里保持一致。
+            </p>
+          </div>
+
+          <div class="usage">
+            <article class="card">
+              <h3>Do</h3>
+              <ul class="spec-list">
+                <li>优先使用 SVG 平面标识作为正式 logo。</li>
+                <li>在深色背景使用 reverse lockup。</li>
+                <li>3D render 只用于品牌主视觉、发布页和 deck 封面。</li>
+                <li>保持中心 V 清晰，不让纹理或背景干扰。</li>
+                <li>中文“预测所”作为二级信息，跟随英文 Veil。</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Don't</h3>
+              <ul class="spec-list">
+                <li>不要拉伸、倾斜、旋转或重绘 diamond mark。</li>
+                <li>不要把 icon 做成普通珠宝、水晶球、筹码或 K 线。</li>
+                <li>不要随意增加渐变、高光、阴影或发光边。</li>
+                <li>不要让 teal 和 amber 大面积主导标识。</li>
+                <li>不要在低对比背景上使用完整彩色 mark。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">08 / Files</p>
+              <h2>当前交付资产。</h2>
+            </div>
+            <p>
+              这些文件已放在项目 assets 目录。SVG 是正式系统资产，PNG 是 Image 2 生成参考和品牌场景图。
+            </p>
+          </div>
+
+          <div class="file-list">
+            <a class="file-link" href="assets/veil-mark-primary.svg">assets/veil-mark-primary.svg</a>
+            <a class="file-link" href="assets/veil-mark-outline.svg">assets/veil-mark-outline.svg</a>
+            <a class="file-link" href="assets/veil-logo-horizontal.svg">assets/veil-logo-horizontal.svg</a>
+            <a class="file-link" href="assets/veil-logo-horizontal-reverse.svg">assets/veil-logo-horizontal-reverse.svg</a>
+            <a class="file-link" href="assets/veil-app-icon.svg">assets/veil-app-icon.svg</a>
+            <a class="file-link" href="assets/veil-logo-3d-render-v2.png">assets/veil-logo-3d-render-v2.png</a>
+            <a class="file-link" href="assets/veil-logo-flat-system-v2.svg">assets/veil-logo-flat-system-v2.svg</a>
+            <a class="file-link" href="index.html">index.html brand strategy page</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Veil / 预测所 Logo Design System v1. Flat SVG marks are the production source of truth; Image 2 outputs are brand exploration and 3D presentation assets.
+    </footer>
+  </body>
+</html>

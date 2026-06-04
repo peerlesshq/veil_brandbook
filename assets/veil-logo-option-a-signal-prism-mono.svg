@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Veil logo option A monochrome</title>
+  <desc id="desc">Monochrome version of the Signal Prism mark.</desc>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="#17202C"/>
+  <path d="M128 42 212 128 128 214 44 128Z" fill="#FFFFFF"/>
+  <path d="M44 128 96 84 116 108 91 128 116 156 98 181Z" fill="#17202C"/>
+  <path d="M212 128 160 84 140 108 165 128 140 156 158 181Z" fill="#17202C"/>
+  <path d="M100 82H119L128 148 137 82H156L128 206Z" fill="#17202C"/>
+</svg>

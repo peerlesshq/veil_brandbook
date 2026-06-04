@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Veil logo option A - Signal Prism</title>
+  <desc id="desc">A compact diamond prism mark with a central V-shaped probability signal and restrained jade, cobalt, and champagne facets.</desc>
+  <defs>
+    <linearGradient id="jadeFacet" x1="44" y1="84" x2="118" y2="181" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3FE0D1"/>
+      <stop offset="1" stop-color="#008F82"/>
+    </linearGradient>
+    <linearGradient id="cobaltFacet" x1="138" y1="84" x2="212" y2="181" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#77B8FF"/>
+      <stop offset="1" stop-color="#1F5EFF"/>
+    </linearGradient>
+  </defs>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="#17202C"/>
+  <path d="M128 42 212 128 128 214 44 128Z" fill="#FFFFFF"/>
+  <path d="M44 128 96 84 116 108 91 128 116 156 98 181Z" fill="url(#jadeFacet)"/>
+  <path d="M212 128 160 84 140 108 165 128 140 156 158 181Z" fill="url(#cobaltFacet)"/>
+  <path d="M100 82H119L128 148 137 82H156L128 206Z" fill="#17202C"/>
+  <path d="M118 124 128 113 138 124 128 136Z" fill="#C9A95F"/>
+  <path d="M128 42 212 128 128 214 44 128Z" fill="none" stroke="#17202C" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="none" stroke="#17202C" stroke-width="7" stroke-linejoin="round"/>
+</svg>

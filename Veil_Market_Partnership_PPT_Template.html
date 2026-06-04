@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veil Market Partnership PPT Template</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:opsz,wght@14..32,400..900&display=swap");
+
+    :root {
+      --font-ui: "Inter Variable", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Source Han Sans SC Variable", "Source Han Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-display: "Inter Tight", "Inter Tight Variable", "Inter Variable", Inter, ui-sans-serif, system-ui, sans-serif;
+      --font-mono: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+      --ink-980: #03070b;
+      --ink-940: #071019;
+      --ink-900: #0a1420;
+      --ink-840: #101d2b;
+      --graphite-800: #17202c;
+      --graphite-700: #273240;
+      --slate-600: #52606d;
+      --slate-500: #71808c;
+      --paper: #ffffff;
+      --porcelain: #f7fafc;
+      --pearl: #eef5f8;
+      --ice: #dcecf6;
+      --jade: #00bfa5;
+      --jade-deep: #008f82;
+      --cobalt: #1f5eff;
+      --cobalt-deep: #173ec8;
+      --sky: #8bd8ff;
+      --champagne: #c9a95f;
+      --champagne-soft: #f4e6bd;
+      --success-global: #16a34a;
+      --danger-global: #dc2626;
+      --line-light: #d8e5ed;
+      --line-dark: rgba(255, 255, 255, .12);
+      --radius: 8px;
+      --shadow-soft: 0 28px 80px rgba(23, 32, 44, .16);
+      --shadow-dark: 0 34px 96px rgba(0, 0, 0, .42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #dfe9ee;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--graphite-800);
+      background:
+        linear-gradient(180deg, #f8fbfd 0, #e6eff4 45%, #dce8ee 100%);
+      font-family: var(--font-ui);
+      line-height: 1.42;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .deck {
+      display: grid;
+      gap: 34px;
+      width: min(1240px, calc(100vw - 48px));
+      margin: 34px auto;
+    }
+
+    .slide {
+      position: relative;
+      display: grid;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 0;
+      overflow: hidden;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .slide.dark {
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(3, 7, 11, .9), rgba(7, 16, 25, .98)),
+        url("assets/veil-brand-pattern-v3.png") center / cover no-repeat;
+      box-shadow: var(--shadow-dark);
+    }
+
+    .slide.light {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 250, 252, .96)),
+        url("assets/veil-light-pattern-v1.png") center / cover no-repeat;
+    }
+
+    .slide.split {
+      grid-template-columns: 1.06fr .94fr;
+    }
+
+    .slide.band {
+      grid-template-rows: auto 1fr;
+      background: var(--paper);
+    }
+
+    .slide-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 26px;
+      padding: 42px 48px 36px;
+      min-height: 0;
+    }
+
+    .slide.split .slide-inner {
+      padding-right: 34px;
+    }
+
+    .slide-visual {
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+      border-left: 1px solid rgba(255, 255, 255, .08);
+      background: var(--pearl);
+    }
+
+    .slide-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(7, 16, 25, .2), transparent 38%);
+      pointer-events: none;
+    }
+
+    .slide-visual.light::after {
+      background: linear-gradient(90deg, rgba(255, 255, 255, .84), rgba(255, 255, 255, .1));
+    }
+
+    .slide-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 40px;
+    }
+
+    .lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      color: inherit;
+      font-weight: 820;
+    }
+
+    .lockup img {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border: 1px solid rgba(7, 16, 25, .09);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .dark .lockup img {
+      border-color: rgba(255, 255, 255, .16);
+    }
+
+    .lockup span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .slide-number,
+    .kicker {
+      color: var(--jade-deep);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .dark .slide-number,
+    .dark .kicker {
+      color: var(--jade);
+    }
+
+    .title-block {
+      max-width: 760px;
+      align-self: end;
+    }
+
+    .title-block.wide {
+      max-width: 980px;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 18px;
+      color: inherit;
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 900;
+      line-height: .94;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: inherit;
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 860;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 820;
+      line-height: 1.2;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 21px;
+      font-weight: 520;
+      line-height: 1.52;
+    }
+
+    .dark .lead {
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .caption {
+      color: var(--slate-500);
+      font-size: 12px;
+      font-weight: 620;
+    }
+
+    .dark .caption {
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .meta-row,
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 7px 11px;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, .74);
+      color: var(--graphite-700);
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .dark .pill {
+      border-color: rgba(255, 255, 255, .14);
+      background: rgba(255, 255, 255, .08);
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .pill.gold {
+      border-color: rgba(201, 169, 95, .42);
+      background: rgba(244, 230, 189, .62);
+      color: #6b5527;
+    }
+
+    .section-band {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 30px 48px;
+      color: #fff;
+      background: var(--ink-940);
+    }
+
+    .section-band .lockup img {
+      background: #fff;
+    }
+
+    .band-body {
+      display: grid;
+      gap: 20px;
+      padding: 40px 48px 38px;
+      min-height: 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      display: grid;
+      gap: 10px;
+      min-height: 0;
+      padding: 18px;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+    }
+
+    .dark .card {
+      border-color: rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .card p,
+    .list p {
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .dark .card p,
+    .dark .list p {
+      color: rgba(255, 255, 255, .66);
+    }
+
+    .metric-card {
+      display: grid;
+      align-content: space-between;
+      min-height: 132px;
+      padding: 16px;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .metric-card strong {
+      color: var(--ink-940);
+      font-family: var(--font-display);
+      font-size: 38px;
+      line-height: .95;
+    }
+
+    .metric-card span {
+      color: var(--slate-600);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .dark .metric-card {
+      border-color: rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .dark .metric-card strong {
+      color: #fff;
+    }
+
+    .dark .metric-card span {
+      color: rgba(255, 255, 255, .64);
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .index {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--pearl);
+      color: var(--jade-deep);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .dark .index {
+      background: rgba(0, 191, 165, .14);
+      color: var(--jade);
+    }
+
+    .image-frame {
+      overflow: hidden;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: var(--radius);
+      background: var(--pearl);
+      min-height: 0;
+    }
+
+    .dark .image-frame {
+      border-color: rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .image-frame.contain img {
+      object-fit: contain;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: var(--radius);
+    }
+
+    .timeline-step {
+      min-height: 220px;
+      padding: 18px;
+      border-right: 1px solid rgba(7, 16, 25, .1);
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .timeline-step:last-child {
+      border-right: 0;
+    }
+
+    .timeline-step strong {
+      display: block;
+      margin-bottom: 46px;
+      color: var(--jade-deep);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-step p {
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 14px;
+    }
+
+    .ratio-strip {
+      display: grid;
+      grid-template-columns: var(--ratio);
+      min-height: 52px;
+      overflow: hidden;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: 7px;
+    }
+
+    .ratio-strip span {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      color: var(--ink-940);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 760;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .dark .ratio-strip {
+      border-color: rgba(255, 255, 255, .16);
+    }
+
+    .dark .ratio-strip span {
+      color: #fff;
+    }
+
+    .color-row {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .swatch {
+      overflow: hidden;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .swatch i {
+      display: block;
+      height: 48px;
+      background: var(--color);
+    }
+
+    .swatch span {
+      display: block;
+      padding: 8px;
+      color: var(--graphite-700);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 760;
+    }
+
+    .dark .swatch {
+      border-color: rgba(255, 255, 255, .14);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .dark .swatch span {
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .table {
+      display: grid;
+      overflow: hidden;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1.3fr;
+      border-bottom: 1px solid rgba(7, 16, 25, .08);
+    }
+
+    .table-row:last-child {
+      border-bottom: 0;
+    }
+
+    .table-row > * {
+      padding: 12px 14px;
+      border-right: 1px solid rgba(7, 16, 25, .08);
+      font-size: 13px;
+    }
+
+    .table-row > *:last-child {
+      border-right: 0;
+    }
+
+    .table-head {
+      color: var(--slate-500);
+      font-size: 11px;
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .footer-note {
+      position: absolute;
+      right: 48px;
+      bottom: 28px;
+      left: 48px;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--slate-500);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 680;
+    }
+
+    .dark .footer-note {
+      color: rgba(255, 255, 255, .46);
+    }
+
+    .cover-lockup {
+      width: 310px;
+      height: auto;
+    }
+
+    .cover-mark {
+      position: absolute;
+      right: 62px;
+      bottom: 54px;
+      width: 260px;
+      height: 260px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .04);
+      box-shadow: 0 34px 90px rgba(0, 191, 165, .16);
+    }
+
+    .cover-mark img {
+      object-fit: contain;
+      padding: 28px;
+    }
+
+    .quote-line {
+      max-width: 920px;
+      color: inherit;
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 880;
+      line-height: 1.02;
+    }
+
+    .subtitle-grid {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 18px;
+      align-items: end;
+    }
+
+    .partner-map {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .partner-card {
+      min-height: 150px;
+      padding: 16px;
+      border: 1px solid rgba(7, 16, 25, .1);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+    }
+
+    .partner-card strong {
+      display: block;
+      margin-bottom: 44px;
+      color: var(--cobalt);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .partner-card p {
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 14px;
+    }
+
+    @media print {
+      @page {
+        size: 16in 9in;
+        margin: 0;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .deck {
+        width: 16in;
+        margin: 0;
+        gap: 0;
+      }
+
+      .slide {
+        width: 16in;
+        height: 9in;
+        page-break-after: always;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .deck {
+        width: min(100% - 24px, 1240px);
+        gap: 18px;
+        margin: 18px auto;
+      }
+
+      .slide {
+        aspect-ratio: auto;
+        min-height: 680px;
+      }
+
+      .slide.split {
+        grid-template-columns: 1fr;
+      }
+
+      .slide-visual {
+        min-height: 260px;
+        border-left: 0;
+        border-top: 1px solid rgba(7, 16, 25, .08);
+      }
+
+      .slide-inner,
+      .band-body {
+        padding: 30px 24px;
+      }
+
+      .section-band {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .timeline,
+      .partner-map,
+      .color-row,
+      .subtitle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cover-mark {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 170px;
+        height: 170px;
+      }
+
+      .footer-note {
+        position: static;
+        padding: 0 24px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="Veil Market Partnership PPT Template">
+    <section class="slide dark">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <img class="cover-lockup" src="assets/veil-lockup-cn-white.svg" alt="预测所 logo">
+          <span class="slide-number">Template 01 / Cover</span>
+        </div>
+        <div class="title-block wide">
+          <p class="kicker">Market Partnership Deck</p>
+          <h1>预测所市场招商合作方案</h1>
+          <p class="lead">面向渠道伙伴、区域合作方、内容机构、活动主办方和企业客户的正式招商模板。重点表达合作价值、落地路径和品牌标准，不进入投资人融资叙事。</p>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Asia-first Partner Growth</span>
+          <span class="pill">Co-marketing Playbook</span>
+          <span class="pill gold">Official Brand Standard</span>
+        </div>
+      </div>
+      <div class="cover-mark"><img src="assets/veil-light-app-icon-v1.png" alt=""></div>
+      <div class="footer-note"><span>Veil Market / Partnership Template</span><span>Confidential partner use</span></div>
+    </section>
+
+    <section class="slide light">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>预测所</span></div>
+          <span class="slide-number">Template 02 / Agenda</span>
+        </div>
+        <div class="subtitle-grid">
+          <div>
+            <p class="kicker">Deck Structure</p>
+            <h2>一套招商 PPT 应该先讲合作逻辑，再讲落地方式。</h2>
+          </div>
+          <p class="lead">不同于投资人材料，这套模板不强调估值、融资用途和财务预测，而是让合作方快速判断：为什么合作、怎么合作、谁负责什么、多久见到动作。</p>
+        </div>
+        <div class="grid four">
+          <article class="metric-card"><strong>01</strong><span>Brand & category context</span></article>
+          <article class="metric-card"><strong>02</strong><span>Partner opportunity</span></article>
+          <article class="metric-card"><strong>03</strong><span>Cooperation model</span></article>
+          <article class="metric-card"><strong>04</strong><span>Launch & enablement</span></article>
+        </div>
+      </div>
+      <div class="footer-note"><span>Use for market招商, BD, regional partnership</span><span>02</span></div>
+    </section>
+
+    <section class="slide band">
+      <div class="section-band">
+        <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>Veil Market</span></div>
+        <span class="slide-number">Template 03 / Positioning</span>
+      </div>
+      <div class="band-body">
+        <div class="subtitle-grid">
+          <div>
+            <p class="kicker">Partnership Thesis</p>
+            <h2>把未来事件变成可读、可讨论、可参与的市场信号。</h2>
+          </div>
+          <p class="lead">招商材料要把预测市场从“交易平台”表达成“内容、社区、活动、品牌和数据场景的连接器”。合作价值来自用户参与、话题运营和高质量市场信息，而不是单纯交易量叙事。</p>
+        </div>
+        <div class="grid three">
+          <article class="card"><h3>For Content Partners</h3><p>把热点事件、行业判断和社群讨论转化为可追踪的市场话题。</p></article>
+          <article class="card"><h3>For Regional Partners</h3><p>围绕本地语言、本地行业和线下活动，建立区域增长入口。</p></article>
+          <article class="card"><h3>For Enterprise Clients</h3><p>用结构化市场观点支持品牌活动、用户洞察和高关注话题运营。</p></article>
+        </div>
+      </div>
+      <div class="footer-note"><span>Message principle: cooperative, grounded, non-investor tone</span><span>03</span></div>
+    </section>
+
+    <section class="slide split dark">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>预测所</span></div>
+          <span class="slide-number">Template 04 / Category Context</span>
+        </div>
+        <div class="title-block">
+          <p class="kicker">Market Opportunity</p>
+          <h2>合作方需要的是可持续的话题入口，而不是一次性曝光。</h2>
+          <p class="lead">预测市场适合承接体育、财经、科技、娱乐、政策、区域产业等高讨论度场景。招商页面应突出“内容场景 + 社群参与 + 数据反馈”的闭环。</p>
+        </div>
+        <div class="grid three">
+          <article class="metric-card"><strong>Topic</strong><span>事件和议题成为市场入口</span></article>
+          <article class="metric-card"><strong>Signal</strong><span>概率变化成为内容资产</span></article>
+          <article class="metric-card"><strong>Loop</strong><span>活动、社群、产品持续联动</span></article>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <img src="assets/veil-key-visual.png" alt="Veil key visual">
+      </div>
+      <div class="footer-note"><span>Use this page to open business conversations</span><span>04</span></div>
+    </section>
+
+    <section class="slide light">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>Veil Market</span></div>
+          <span class="slide-number">Template 05 / Partner Map</span>
+        </div>
+        <div class="subtitle-grid">
+          <div>
+            <p class="kicker">Who We Work With</p>
+            <h2>把合作对象分成六类，避免招商页变成泛泛介绍。</h2>
+          </div>
+          <p class="lead">每类伙伴都有不同目标：获客、内容、品牌、区域渗透、活动转化或企业服务。PPT 中应清楚说明对应权益和交付边界。</p>
+        </div>
+        <div class="partner-map">
+          <article class="partner-card"><strong>Media</strong><h3>内容和媒体机构</h3><p>专题市场、联合栏目、数据图卡、热点评论。</p></article>
+          <article class="partner-card"><strong>Community</strong><h3>社群和 KOL</h3><p>社群活动、教育内容、联合直播、增长任务。</p></article>
+          <article class="partner-card"><strong>Region</strong><h3>区域代理和城市伙伴</h3><p>本地化市场、活动落地、渠道拓展和客户维护。</p></article>
+          <article class="partner-card"><strong>Event</strong><h3>赛事和活动主办方</h3><p>赛前预测、现场互动、屏幕视觉、活动复盘。</p></article>
+          <article class="partner-card"><strong>Enterprise</strong><h3>企业和品牌客户</h3><p>品牌议题、用户洞察、内容共创、合作专区。</p></article>
+          <article class="partner-card"><strong>Institution</strong><h3>研究和教育机构</h3><p>市场机制教育、研究数据、讲座和公开课程。</p></article>
+        </div>
+      </div>
+      <div class="footer-note"><span>Template rule: name the partner type before naming the offer</span><span>05</span></div>
+    </section>
+
+    <section class="slide light split">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>预测所</span></div>
+          <span class="slide-number">Template 06 / Product Surface</span>
+        </div>
+        <div>
+          <p class="kicker">Product Story Page</p>
+          <h2>招商 PPT 里的产品页要展示“合作方能用到什么”。</h2>
+          <p class="lead">不用讲太多底层机制，重点展示市场创建、榜单、话题页、活动页、社媒图卡和数据复盘等可合作模块。</p>
+        </div>
+        <ul class="list">
+          <li><span class="index">1</span><p><strong>Market module</strong><br>事件市场、话题集合、行业专题和活动市场。</p></li>
+          <li><span class="index">2</span><p><strong>Engagement module</strong><br>用户参与、预测榜、任务机制、活动报名入口。</p></li>
+          <li><span class="index">3</span><p><strong>Content module</strong><br>数据图卡、趋势回顾、联合栏目和社媒模板。</p></li>
+        </ul>
+      </div>
+      <div class="slide-visual light">
+        <img src="assets/veil-color-app-product-light-v1.png" alt="Product light application">
+      </div>
+      <div class="footer-note"><span>Use screenshots or product mockups only after this page</span><span>06</span></div>
+    </section>
+
+    <section class="slide band">
+      <div class="section-band">
+        <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>预测所</span></div>
+        <span class="slide-number">Template 07 / Cooperation Models</span>
+      </div>
+      <div class="band-body">
+        <div>
+          <p class="kicker">Business Cooperation</p>
+          <h2>招商页应给出可选择的合作模式，而不是只说“欢迎合作”。</h2>
+        </div>
+        <div class="table">
+          <div class="table-row table-head"><span>Model</span><span>Best for</span><span>Standard deliverables</span></div>
+          <div class="table-row"><span>Channel Partner</span><span>区域增长、社群获客、行业渠道</span><span>渠道包、培训材料、联合活动、月度复盘。</span></div>
+          <div class="table-row"><span>Content Partner</span><span>媒体栏目、KOL、研究社群</span><span>专题市场、内容图卡、联合直播、数据回顾。</span></div>
+          <div class="table-row"><span>Event Partner</span><span>会议、赛事、线下峰会、品牌活动</span><span>现场屏幕、预测互动、活动页、会后报告。</span></div>
+          <div class="table-row"><span>Enterprise Partner</span><span>企业客户、品牌客户、行业协会</span><span>定制议题、品牌专区、洞察报告、白名单权益。</span></div>
+        </div>
+      </div>
+      <div class="footer-note"><span>Keep terms operational; avoid investment return language</span><span>07</span></div>
+    </section>
+
+    <section class="slide split dark">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>Veil Market</span></div>
+          <span class="slide-number">Template 08 / Launch Campaign</span>
+        </div>
+        <div>
+          <p class="kicker">Co-marketing Launch Kit</p>
+          <h2>联合增长页要让合作方看到一套可以立刻执行的物料系统。</h2>
+          <p class="lead">深色版本适合发布会、活动主屏、X / LinkedIn 和行业会议。浅色版本适合公众号、小红书、合作邀请和产品教育。</p>
+        </div>
+        <div class="grid two">
+          <article class="card"><h3>Launch Assets</h3><p>主 KV、社媒封面、Story、活动邀请函、联合 logo lockup。</p></article>
+          <article class="card"><h3>Content Assets</h3><p>市场解释图、概率变化图卡、议题预告、活动复盘图。</p></article>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <img src="assets/veil-color-app-social-system-v1.png" alt="Social format system">
+      </div>
+      <div class="footer-note"><span>Dark premium campaign style</span><span>08</span></div>
+    </section>
+
+    <section class="slide light split">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>预测所</span></div>
+          <span class="slide-number">Template 09 / Offline</span>
+        </div>
+        <div>
+          <p class="kicker">Offline & Event Page</p>
+          <h2>线下招商页要正规、有秩序，强调现场转化和品牌共建。</h2>
+          <p class="lead">适合活动主办方、区域代理和企业客户。页面重点不是“酷”，而是告诉对方现场能落地哪些触点。</p>
+        </div>
+        <div class="grid two">
+          <article class="card"><h3>On-site</h3><p>签到入口、互动屏、预测活动、桌牌、胸牌、合作方展示墙。</p></article>
+          <article class="card"><h3>Post-event</h3><p>活动数据复盘、合作方露出、社媒二次传播、下次活动计划。</p></article>
+        </div>
+      </div>
+      <div class="slide-visual light">
+        <img src="assets/veil-color-app-offline-investor-v1.png" alt="Offline material standards">
+      </div>
+      <div class="footer-note"><span>Use for booth, conference, regional roadshow</span><span>09</span></div>
+    </section>
+
+    <section class="slide light">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>Veil Market</span></div>
+          <span class="slide-number">Template 10 / Enablement Timeline</span>
+        </div>
+        <div class="subtitle-grid">
+          <div>
+            <p class="kicker">Partner Enablement</p>
+            <h2>给合作方一条清晰的落地时间线。</h2>
+          </div>
+          <p class="lead">招商 PPT 需要降低对方的执行不确定性。时间线应包含启动、物料、上线、复盘四个阶段，明确双方协作界面。</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-step"><strong>Week 01</strong><h3>Alignment</h3><p>确认合作类型、目标人群、活动场景、市场主题和责任人。</p></article>
+          <article class="timeline-step"><strong>Week 02</strong><h3>Asset Build</h3><p>输出合作页、KV、社媒素材、市场说明和培训材料。</p></article>
+          <article class="timeline-step"><strong>Week 03</strong><h3>Launch</h3><p>联合发布、社群运营、活动引导、数据监控和问题响应。</p></article>
+          <article class="timeline-step"><strong>Week 04</strong><h3>Review</h3><p>复盘参与、内容表现、合作反馈和下一轮扩展计划。</p></article>
+        </div>
+      </div>
+      <div class="footer-note"><span>Replace timeline with actual project rhythm when confirmed</span><span>10</span></div>
+    </section>
+
+    <section class="slide light">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>预测所</span></div>
+          <span class="slide-number">Template 11 / Light Color Standard</span>
+        </div>
+        <div>
+          <p class="kicker">Color Standard - Light Trust</p>
+          <h2>招商文件、合作说明和中文增长素材默认用浅色体系。</h2>
+          <p class="lead">Light Trust 适合高频阅读、合同附件、合作手册、公众号文章和小红书图文。保持白纸感，减少视觉噪声。</p>
+        </div>
+        <div class="ratio-strip" style="--ratio:56fr 18fr 14fr 8fr 4fr">
+          <span style="background:#ffffff">56% White</span>
+          <span style="background:#eef5f8">18% Pearl</span>
+          <span style="background:#17202c;color:#fff">14% Ink</span>
+          <span style="background:#00bfa5">8% Jade</span>
+          <span style="background:#c9a95f">4% Gold</span>
+        </div>
+        <div class="grid three">
+          <article class="card"><h3>Primary</h3><p>White / Pearl 承担大面积，让招商材料看起来可信、正式、可打印。</p></article>
+          <article class="card"><h3>Action</h3><p>Jade / Cobalt 只用于按钮、强调、流程节点和关键数据。</p></article>
+          <article class="card"><h3>Premium</h3><p>Gold 只用于合作等级、权益、邀请和官方背书。</p></article>
+        </div>
+      </div>
+      <div class="footer-note"><span>Do not turn the whole deck green, blue, or gold</span><span>11</span></div>
+    </section>
+
+    <section class="slide dark">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>Veil Market</span></div>
+          <span class="slide-number">Template 12 / Dark Color Standard</span>
+        </div>
+        <div>
+          <p class="kicker">Color Standard - Dark Premium</p>
+          <h2>发布会、展台主屏、合作封面和高级招商页使用深色体系。</h2>
+          <p class="lead">Dark Premium 负责权威感和高价值传播。深墨是舞台，Jade/Cobalt 是信号光，Gold 只是少量资质高光。</p>
+        </div>
+        <div class="ratio-strip" style="--ratio:64fr 14fr 9fr 8fr 5fr">
+          <span style="background:#071019">64% Ink</span>
+          <span style="background:#17202c">14% Graphite</span>
+          <span style="background:#00bfa5">9% Jade</span>
+          <span style="background:#1f5eff">8% Cobalt</span>
+          <span style="background:#c9a95f">5% Gold</span>
+        </div>
+        <div class="grid three">
+          <article class="card"><h3>Use</h3><p>封面、章节页、线下屏幕、主视觉、合作发布海报。</p></article>
+          <article class="card"><h3>Pairing</h3><p>白字 + Jade 信号 + 少量 Gold，避免彩虹光效和过度科技感。</p></article>
+          <article class="card"><h3>Avoid</h3><p>不要把深色页做成投资人路演式“宏大叙事”，招商仍要落地。</p></article>
+        </div>
+      </div>
+      <div class="footer-note"><span>Dark mode is premium, not default document mode</span><span>12</span></div>
+    </section>
+
+    <section class="slide light">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>预测所</span></div>
+          <span class="slide-number">Template 13 / Semantic Color</span>
+        </div>
+        <div class="subtitle-grid">
+          <div>
+            <p class="kicker">Data Semantics</p>
+            <h2>红绿只属于市场数据，不属于品牌招商主视觉。</h2>
+          </div>
+          <p class="lead">招商 PPT 里可以展示涨跌和概率变化，但必须把红绿限制在图表、趋势、市场状态中，并配合文字、箭头或正负号。</p>
+        </div>
+        <div class="color-row">
+          <article class="swatch"><i style="--color:#16a34a"></i><span>Global Up</span></article>
+          <article class="swatch"><i style="--color:#dc2626"></i><span>Global Down</span></article>
+          <article class="swatch"><i style="--color:#e53935"></i><span>East Asia Up</span></article>
+          <article class="swatch"><i style="--color:#059669"></i><span>East Asia Down</span></article>
+          <article class="swatch"><i style="--color:#1f5eff"></i><span>Focus</span></article>
+          <article class="swatch"><i style="--color:#00bfa5"></i><span>Confirm</span></article>
+        </div>
+        <div class="grid three">
+          <article class="card"><h3>Global deck</h3><p>默认绿涨红跌，适合欧美和国际合作方。</p></article>
+          <article class="card"><h3>East Asia deck</h3><p>中国、日本、韩国语境可切换红涨绿跌。</p></article>
+          <article class="card"><h3>Brand rule</h3><p>红绿不得进入 Logo、封面、主 CTA 或招商主背景。</p></article>
+        </div>
+      </div>
+      <div class="footer-note"><span>Always label semantic color with text or icon</span><span>13</span></div>
+    </section>
+
+    <section class="slide split light">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <div class="lockup"><img src="assets/veil-light-app-icon-v1.png" alt=""><span>Veil Market</span></div>
+          <span class="slide-number">Template 14 / Next Steps</span>
+        </div>
+        <div>
+          <p class="kicker">Formal Closing Content Page</p>
+          <h2>最后一页内容页要让合作方知道下一步怎么推进。</h2>
+          <p class="lead">不要以“期待融资”结尾，而是以“确认场景、对接团队、试点合作、复盘扩展”结尾。</p>
+        </div>
+        <ul class="list">
+          <li><span class="index">A</span><p><strong>Confirm scenario</strong><br>选择内容、渠道、活动或企业合作方向。</p></li>
+          <li><span class="index">B</span><p><strong>Assign owners</strong><br>确认双方负责团队、素材审批人和上线窗口。</p></li>
+          <li><span class="index">C</span><p><strong>Run pilot</strong><br>以 2-4 周试点合作验证用户参与和内容表现。</p></li>
+        </ul>
+      </div>
+      <div class="slide-visual light">
+        <img src="assets/veil-color-combination-matrix-v1.png" alt="Color combination matrix">
+      </div>
+      <div class="footer-note"><span>Close with operational clarity</span><span>14</span></div>
+    </section>
+
+    <section class="slide dark">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <img class="cover-lockup" src="assets/veil-lockup-cn-white.svg" alt="预测所 logo">
+          <span class="slide-number">Template 15 / End Page</span>
+        </div>
+        <div class="title-block wide">
+          <p class="kicker">Thank You</p>
+          <p class="quote-line">一起把未来事件，变成可参与的市场信号。</p>
+          <p class="lead">联系人 / 邮箱 / 官网 / 合作渠道二维码可放置在右下角。尾页只保留一个主信息和一个行动入口。</p>
+        </div>
+        <div class="meta-row">
+          <span class="pill">partnership@veil.example</span>
+          <span class="pill">veil.example/partners</span>
+          <span class="pill gold">Official partnership deck</span>
+        </div>
+      </div>
+      <div class="cover-mark"><img src="assets/veil-light-app-icon-v1.png" alt=""></div>
+      <div class="footer-note"><span>Veil Market / Partnership Template</span><span>15</span></div>
+    </section>
+  </main>
+</body>
+</html>

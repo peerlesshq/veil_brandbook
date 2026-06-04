@@ -1,0 +1,1665 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veil Light Mode Palette Board</title>
+  <style>
+    :root {
+      --paper: #ffffff;
+      --porcelain: #f7fafc;
+      --pearl: #eef5f8;
+      --ice: #dcecf6;
+      --line: #d8e5ed;
+      --graphite: #17202c;
+      --ink: #273240;
+      --slate: #52606d;
+      --muted: #7b8994;
+      --jade: #00bfa5;
+      --jade-deep: #008f82;
+      --cobalt: #1f5eff;
+      --cobalt-deep: #173ec8;
+      --sky: #8bd8ff;
+      --champagne: #c9a95f;
+      --champagne-soft: #f4e6bd;
+      --risk: #df6f6c;
+      --success: #13a06f;
+      --radius: 8px;
+      --shadow-soft: 0 18px 54px rgba(30, 52, 72, .12);
+      --shadow-tight: 0 10px 30px rgba(30, 52, 72, .1);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+        sans-serif;
+      color: var(--graphite);
+      background: var(--porcelain);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--graphite);
+      background:
+        radial-gradient(circle at 84% 0%, rgba(139, 216, 255, .22), transparent 32rem),
+        linear-gradient(180deg, #fff 0, var(--porcelain) 720px, var(--pearl) 100%);
+      line-height: 1.56;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p,
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 274px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 24px 18px;
+      border-right: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(247, 250, 252, .96)),
+        url("assets/veil-light-pattern-v1.png") center / cover no-repeat;
+      box-shadow: 8px 0 36px rgba(30, 52, 72, .06);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      overflow: hidden;
+      border: 1px solid rgba(31, 94, 255, .12);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(0, 191, 165, .16);
+    }
+
+    .brand-lockup small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .nav-title {
+      margin: 20px 0 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      display: grid;
+      gap: 3px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-list a {
+      display: flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .nav-list a:hover {
+      color: var(--graphite);
+      border-color: rgba(31, 94, 255, .14);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .sidebar-note {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--slate);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      isolation: isolate;
+      background: #fff;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .84) 34%, rgba(255, 255, 255, .2) 68%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(247, 250, 252, .82)),
+        url("assets/veil-light-hero-v1.png") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      z-index: -1;
+      height: 26vh;
+      background: linear-gradient(180deg, rgba(247, 250, 252, 0), var(--porcelain));
+    }
+
+    .hero-inner,
+    .section-inner {
+      width: min(1180px, calc(100% - 56px));
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      padding: 118px 0 72px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--jade-deep);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin-bottom: 20px;
+      font-size: clamp(46px, 7vw, 92px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(18px, 1.9vw, 22px);
+      text-wrap: balance;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 930px;
+      margin-top: 34px;
+    }
+
+    .metric {
+      min-height: 98px;
+      padding: 16px;
+      border: 1px solid rgba(216, 229, 237, .92);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .74);
+      box-shadow: var(--shadow-tight);
+      backdrop-filter: blur(16px);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--graphite);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--slate);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    section {
+      padding: 82px 0;
+      background: var(--porcelain);
+    }
+
+    .section-white {
+      background: #fff;
+    }
+
+    .section-ice {
+      background: var(--pearl);
+    }
+
+    .section-signal {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(238, 245, 248, .96)),
+        url("assets/veil-light-pattern-v1.png") center / cover no-repeat;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(320px, 1fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(32px, 4.2vw, 54px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .muted {
+      color: var(--slate);
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .panel {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .86);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .panel-body {
+      padding: 22px;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--slate);
+      font-size: 14px;
+    }
+
+    .panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .brand-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .brand-pill {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid rgba(0, 191, 165, .18);
+      border-radius: 999px;
+      background: rgba(0, 191, 165, .1);
+      color: var(--jade-deep);
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .image-card {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .image-card.short {
+      min-height: 312px;
+    }
+
+    .image-card.tall {
+      min-height: 650px;
+    }
+
+    .image-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 46%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .94));
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      inset: auto 16px 16px;
+      z-index: 1;
+      padding: 15px;
+      border: 1px solid rgba(216, 229, 237, .9);
+      border-radius: var(--radius);
+      color: var(--graphite);
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 12px 30px rgba(30, 52, 72, .1);
+      backdrop-filter: blur(14px);
+    }
+
+    .caption h3 {
+      margin-bottom: 4px;
+      font-size: 17px;
+    }
+
+    .caption p {
+      margin: 0;
+      color: var(--slate);
+      font-size: 13px;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .swatch {
+      min-height: 126px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      gap: 6px;
+      padding: 14px;
+      border: 1px solid rgba(23, 32, 44, .09);
+      border-radius: var(--radius);
+      background: var(--color);
+      color: var(--on);
+    }
+
+    .swatch span:first-child {
+      color: currentColor;
+      font-size: 11px;
+      opacity: .72;
+    }
+
+    .swatch span:last-child {
+      color: currentColor;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .ratio-bar {
+      display: grid;
+      grid-template-columns: 46fr 18fr 18fr 10fr 6fr 2fr;
+      height: 48px;
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .ratio-bar i {
+      display: block;
+      background: var(--color);
+    }
+
+    .ratio-list {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .ratio-list span {
+      min-height: 42px;
+      padding: 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, .78);
+      color: var(--slate);
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .token-table {
+      width: 100%;
+      overflow: hidden;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .token-table th,
+    .token-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    .token-table th {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: var(--porcelain);
+    }
+
+    .token-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .code {
+      color: var(--graphite);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .mini-swatch {
+      width: 36px;
+      height: 18px;
+      display: inline-block;
+      margin-right: 8px;
+      border: 1px solid rgba(23, 32, 44, .12);
+      border-radius: 5px;
+      vertical-align: middle;
+      background: var(--color);
+    }
+
+    .lockup-demo {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      min-height: 400px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .lockup-symbol {
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .78), rgba(220, 236, 246, .58)),
+        url("assets/veil-light-pattern-v1.png") center / cover no-repeat;
+    }
+
+    .lockup-symbol img {
+      width: min(180px, 82%);
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      box-shadow: 0 20px 42px rgba(31, 94, 255, .16);
+    }
+
+    .lockup-rules {
+      padding: 26px;
+    }
+
+    .clearspace {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .clearspace div {
+      min-height: 96px;
+      padding: 14px;
+      border: 1px dashed rgba(82, 96, 109, .4);
+      border-radius: var(--radius);
+      background: rgba(247, 250, 252, .8);
+      color: var(--slate);
+      font-size: 13px;
+    }
+
+    .ui-shell {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr) 280px;
+      gap: 14px;
+      min-height: 470px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(247, 250, 252, .95)),
+        url("assets/veil-light-pattern-v1.png") center / cover no-repeat;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .ui-nav,
+    .ui-main,
+    .ui-side {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 10px 26px rgba(30, 52, 72, .07);
+    }
+
+    .ui-nav {
+      display: grid;
+      align-content: start;
+      justify-items: center;
+      gap: 14px;
+      padding: 14px 10px;
+    }
+
+    .ui-dot,
+    .ui-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 7px;
+      background: rgba(31, 94, 255, .08);
+      border: 1px solid rgba(31, 94, 255, .1);
+    }
+
+    .ui-dot {
+      background:
+        linear-gradient(135deg, var(--jade), var(--cobalt));
+      box-shadow: 0 10px 20px rgba(0, 191, 165, .18);
+    }
+
+    .ui-main,
+    .ui-side {
+      padding: 18px;
+    }
+
+    .ui-title {
+      width: 52%;
+      height: 12px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: #c8d5de;
+    }
+
+    .ui-chart {
+      height: 172px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(0, 191, 165, .16), rgba(0, 191, 165, .02)),
+        repeating-linear-gradient(90deg, transparent 0 15%, rgba(216, 229, 237, .6) 15.2% 15.4%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ui-chart::before,
+    .ui-chart::after {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 8%;
+      height: 3px;
+      border-radius: 999px;
+      transform-origin: left center;
+    }
+
+    .ui-chart::before {
+      top: 44%;
+      background: var(--jade);
+      box-shadow: 70px -28px 0 -1px var(--jade), 150px 12px 0 -1px var(--jade), 250px -36px 0 -1px var(--jade);
+      transform: rotate(-5deg);
+    }
+
+    .ui-chart::after {
+      top: 58%;
+      background: var(--cobalt);
+      box-shadow: 72px -18px 0 -1px var(--cobalt), 148px 18px 0 -1px var(--cobalt), 248px -12px 0 -1px var(--cobalt);
+      transform: rotate(-2deg);
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .button {
+      min-height: 50px;
+      border-radius: 8px;
+      background: var(--jade);
+      box-shadow: inset 0 -8px 18px rgba(0, 0, 0, .08);
+    }
+
+    .button.alt {
+      background: var(--cobalt);
+    }
+
+    .ui-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .ui-row {
+      min-height: 58px;
+      display: grid;
+      grid-template-columns: 40px 1fr 76px;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .ui-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(0, 191, 165, .12);
+    }
+
+    .ui-lines i {
+      display: block;
+      height: 8px;
+      margin: 5px 0;
+      border-radius: 999px;
+      background: #c8d5de;
+    }
+
+    .ui-lines i:first-child {
+      width: 72%;
+      background: #788897;
+    }
+
+    .spark {
+      height: 22px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent 0 8%, var(--jade) 8% 12%, transparent 12% 24%, var(--cobalt) 24% 30%, transparent 30% 44%, var(--champagne) 44% 50%, transparent 50%);
+      opacity: .92;
+    }
+
+    .ui-side .donut {
+      width: 104px;
+      height: 104px;
+      margin: 10px auto 18px;
+      border-radius: 50%;
+      background: conic-gradient(var(--jade) 0 32%, var(--cobalt) 32% 68%, var(--champagne) 68% 82%, #cbd7df 82% 100%);
+      position: relative;
+    }
+
+    .ui-side .donut::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .surface-stack {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .surface {
+      min-height: 144px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .surface strong {
+      font-size: 14px;
+      line-height: 1.1;
+    }
+
+    .surface span {
+      margin-top: 6px;
+      color: var(--sub);
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr .56fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .template-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .template-card.feed {
+      aspect-ratio: 1;
+    }
+
+    .template-card.story {
+      aspect-ratio: 9 / 16;
+    }
+
+    .template-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .94));
+    }
+
+    .template-label {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .84);
+      backdrop-filter: blur(14px);
+      color: var(--graphite);
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .template-label span {
+      color: var(--slate);
+      font-weight: 650;
+    }
+
+    .application-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .application {
+      min-height: 138px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .84);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .application strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .application p {
+      margin: 0;
+      color: var(--slate);
+      font-size: 13px;
+    }
+
+    .deck-preview {
+      position: relative;
+      min-height: 480px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .deck-preview img {
+      position: absolute;
+      inset: 0;
+    }
+
+    .deck-frame {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 34px;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 250px;
+      gap: 18px;
+      align-items: end;
+    }
+
+    .deck-title,
+    .deck-card {
+      border: 1px solid rgba(216, 229, 237, .86);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 18px 44px rgba(30, 52, 72, .12);
+      backdrop-filter: blur(18px);
+    }
+
+    .deck-title {
+      padding: 26px;
+    }
+
+    .deck-title h3 {
+      max-width: 600px;
+      margin-bottom: 12px;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.03;
+    }
+
+    .deck-title p,
+    .deck-card p {
+      margin: 0;
+      color: var(--slate);
+      font-size: 14px;
+    }
+
+    .deck-card {
+      padding: 18px;
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .asset {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-tight);
+    }
+
+    .asset-media {
+      height: 160px;
+      background: var(--pearl);
+    }
+
+    .asset-body {
+      min-height: 120px;
+      padding: 14px;
+    }
+
+    .asset-body h3 {
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .asset-body p {
+      margin: 0;
+      color: var(--slate);
+      font-size: 12px;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .rule-card {
+      min-height: 320px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-tight);
+    }
+
+    .rule-visual {
+      min-height: 172px;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .rule-chip {
+      width: 72%;
+      min-height: 76px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--text);
+      background: var(--fill);
+      box-shadow: var(--shadow-tight);
+      font-weight: 800;
+    }
+
+    .spec-line {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .spec-line:last-child {
+      border-bottom: 0;
+    }
+
+    .spec-line strong {
+      color: var(--graphite);
+      font-size: 13px;
+    }
+
+    .spec-line span {
+      color: var(--slate);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      background: var(--graphite);
+      color: rgba(255, 255, 255, .72);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1080px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: relative;
+        height: auto;
+        padding: 16px 18px;
+      }
+
+      .sidebar-note {
+        position: static;
+        margin-top: 16px;
+      }
+
+      .nav-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .hero-metrics,
+      .cols-4,
+      .asset-grid,
+      .application-strip,
+      .surface-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ui-shell {
+        grid-template-columns: 68px minmax(0, 1fr);
+      }
+
+      .ui-side {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-inner,
+      .section-inner {
+        width: min(100% - 32px, 1180px);
+      }
+
+      .hero {
+        min-height: 820px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .86) 58%, rgba(255, 255, 255, .2)),
+          url("assets/veil-light-hero-v1.png") 62% center / cover no-repeat;
+      }
+
+      .hero-inner {
+        padding: 96px 0 52px;
+      }
+
+      .section-head,
+      .cols-2,
+      .cols-3,
+      .cols-4,
+      .hero-metrics,
+      .swatches,
+      .ratio-list,
+      .asset-grid,
+      .application-strip,
+      .lockup-demo,
+      .social-grid,
+      .deck-frame,
+      .rule-grid,
+      .surface-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .image-card,
+      .image-card.tall {
+        min-height: 460px;
+      }
+
+      .ui-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .ui-nav {
+        grid-auto-flow: column;
+        justify-content: start;
+        overflow-x: auto;
+      }
+
+      .deck-preview {
+        min-height: 620px;
+      }
+
+      .deck-frame {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+      }
+
+      .spec-line {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <a class="brand-lockup" href="#top" aria-label="Veil Light Mode Brand System">
+        <span class="brand-mark"><img src="assets/veil-light-app-icon-v1.png" alt=""></span>
+        <span>Veil<br><small>Light Mode System</small></span>
+      </a>
+      <p class="nav-title">Palette Board</p>
+      <ul class="nav-list">
+        <li><a href="#strategy">01 Strategy</a></li>
+        <li><a href="#palette">02 Palette</a></li>
+        <li><a href="#tokens">03 Tokens</a></li>
+        <li><a href="#logo">04 Logo</a></li>
+        <li><a href="#product">05 Product UI</a></li>
+        <li><a href="#semantic">06 Data Color</a></li>
+        <li><a href="#social">07 Social</a></li>
+        <li><a href="#offline">08 Offline</a></li>
+        <li><a href="#rules">09 Rules</a></li>
+        <li><a href="#assets">10 Assets</a></li>
+      </ul>
+      <div class="sidebar-note">Image2 light assets. Direction: Pearl Signal.</div>
+    </aside>
+
+    <main class="content" id="top">
+      <header class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Light Mode Branding System</p>
+          <h1>Veil Pearl Signal Palette</h1>
+          <p class="hero-copy">一个面向亚洲高频移动用户、同时适合欧美金融科技市场的浅色品牌系统。核心是珍珠白、冰雾蓝、玉青、钴蓝和少量香槟金：清晰、可信、现代、克制，不博彩化，也不落入普通 Web3 霓虹风。</p>
+          <div class="hero-metrics">
+            <div class="metric"><strong>46%</strong><span>白色与近白表面，负责信任感和阅读效率</span></div>
+            <div class="metric"><strong>36%</strong><span>冰蓝与石墨层级，负责结构、边界和信息密度</span></div>
+            <div class="metric"><strong>16%</strong><span>玉青与钴蓝信号，负责品牌识别和交互行动</span></div>
+            <div class="metric"><strong>2%</strong><span>香槟金点缀，只用于高级感、合作和里程碑</span></div>
+          </div>
+        </div>
+      </header>
+
+      <section id="strategy" class="section-white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">01 Strategy</p>
+              <h2>Light mode is the default trust surface.</h2>
+            </div>
+            <p>预测市场的浅色界面不应该显得廉价或过度金融化。Veil 的 Light Mode 要像亚洲头部券商和全球 fintech 的结合体：信息密度高、背景干净、信号明确，品牌高光集中在关键路径。</p>
+          </div>
+          <div class="grid cols-4">
+            <article class="panel">
+              <div class="panel-body">
+                <h3>亚洲用户</h3>
+                <p>偏好清晰层级、强可读性、较高信息密度和明确行动按钮。浅底减少长时间阅读疲劳，也更适合中文、日文、韩文排版。</p>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-body">
+                <h3>欧美用户</h3>
+                <p>需要避免“赌场感”和夸张 Web3 质感。白底、冷色、石墨文字和克制金属光可以更接近合规金融与研究产品。</p>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-body">
+                <h3>品牌识别</h3>
+                <p>钻石符号保留“折射、概率、信号”的概念。浅色模式中，钻石不靠黑底发光，而靠冰面、透明边缘和局部高饱和色形成记忆点。</p>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-body">
+                <h3>商业物料</h3>
+                <p>招商、线下展台、PPT 和社媒可以大量使用留白。品牌主色只在标题、按钮、曲线、标签、二维码边框和页脚系统中出现。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="palette">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">02 Core Palette</p>
+              <h2>浅色主导，信号色收束。</h2>
+            </div>
+            <p>Light Mode 的关键不是把所有东西变亮，而是控制颜色占比。大面积近白让产品更可信，玉青和钴蓝只在需要判断、行动或确认时出现。</p>
+          </div>
+
+          <div class="swatches">
+            <div class="swatch" style="--color:#ffffff;--on:#17202c"><span>Pearl White</span><span>#FFFFFF</span></div>
+            <div class="swatch" style="--color:#f7fafc;--on:#17202c"><span>Porcelain</span><span>#F7FAFC</span></div>
+            <div class="swatch" style="--color:#eef5f8;--on:#17202c"><span>Ice Surface</span><span>#EEF5F8</span></div>
+            <div class="swatch" style="--color:#dcecf6;--on:#17202c"><span>Mist Blue</span><span>#DCECF6</span></div>
+            <div class="swatch" style="--color:#17202c;--on:#ffffff"><span>Graphite</span><span>#17202C</span></div>
+            <div class="swatch" style="--color:#52606d;--on:#ffffff"><span>Slate Text</span><span>#52606D</span></div>
+            <div class="swatch" style="--color:#00bfa5;--on:#05221f"><span>Jade Signal</span><span>#00BFA5</span></div>
+            <div class="swatch" style="--color:#1f5eff;--on:#ffffff"><span>Cobalt Action</span><span>#1F5EFF</span></div>
+            <div class="swatch" style="--color:#8bd8ff;--on:#17202c"><span>Ice Glow</span><span>#8BD8FF</span></div>
+            <div class="swatch" style="--color:#c9a95f;--on:#17202c"><span>Champagne</span><span>#C9A95F</span></div>
+            <div class="swatch" style="--color:#13a06f;--on:#ffffff"><span>Positive</span><span>#13A06F</span></div>
+            <div class="swatch" style="--color:#df6f6c;--on:#ffffff"><span>Risk</span><span>#DF6F6C</span></div>
+          </div>
+
+          <div class="ratio-bar" aria-label="Recommended light mode color ratio">
+            <i style="--color:#ffffff"></i>
+            <i style="--color:#eef5f8"></i>
+            <i style="--color:#17202c"></i>
+            <i style="--color:#00bfa5"></i>
+            <i style="--color:#1f5eff"></i>
+            <i style="--color:#c9a95f"></i>
+          </div>
+          <div class="ratio-list">
+            <span>46% Pearl White<br>主背景、卡片、空白区</span>
+            <span>18% Ice Surface<br>页面层级、分区、浅底</span>
+            <span>18% Graphite<br>标题、正文、强对比</span>
+            <span>10% Jade<br>品牌信号、确认、选择</span>
+            <span>6% Cobalt<br>主行动、链接、数据焦点</span>
+            <span>2% Champagne<br>合作、VIP、里程碑</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="tokens" class="section-white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">03 Light Tokens</p>
+              <h2>让白色界面也有层级。</h2>
+            </div>
+            <p>浅色系统最容易失败在“所有区域都一样白”。Veil 需要用透明度、边线、阴影和冰雾色来建立层级，而不是不断加深背景。</p>
+          </div>
+
+          <div class="grid cols-2">
+            <div>
+              <div class="surface-stack">
+                <div class="surface" style="--bg:#ffffff;--text:#17202c;--sub:#52606d"><strong>Surface 0</strong><span>App body, document background</span></div>
+                <div class="surface" style="--bg:#f7fafc;--text:#17202c;--sub:#52606d"><strong>Surface 1</strong><span>Section band, table field</span></div>
+                <div class="surface" style="--bg:#eef5f8;--text:#17202c;--sub:#52606d"><strong>Surface 2</strong><span>Sidebar, hover area</span></div>
+                <div class="surface" style="--bg:#dcecf6;--text:#17202c;--sub:#52606d"><strong>Surface 3</strong><span>Selected background</span></div>
+                <div class="surface" style="--bg:#17202c;--text:#ffffff;--sub:#b9c8d2"><strong>Inverse</strong><span>Only for footer, QR blocks, lockups</span></div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-body">
+                <table class="token-table">
+                  <thead>
+                    <tr>
+                      <th>Token</th>
+                      <th>Value</th>
+                      <th>Usage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="code">--bg-app</td>
+                      <td><span class="mini-swatch" style="--color:#ffffff"></span>#FFFFFF</td>
+                      <td>主界面、长阅读、价格列表、市场详情。</td>
+                    </tr>
+                    <tr>
+                      <td class="code">--bg-elevated</td>
+                      <td><span class="mini-swatch" style="--color:#f7fafc"></span>#F7FAFC</td>
+                      <td>卡片内部、输入区、表格头、轻分区。</td>
+                    </tr>
+                    <tr>
+                      <td class="code">--border-soft</td>
+                      <td><span class="mini-swatch" style="--color:#d8e5ed"></span>#D8E5ED</td>
+                      <td>默认边框，避免灰线过黑导致廉价感。</td>
+                    </tr>
+                    <tr>
+                      <td class="code">--text-primary</td>
+                      <td><span class="mini-swatch" style="--color:#17202c"></span>#17202C</td>
+                      <td>标题、价格、关键概率、CTA 文案。</td>
+                    </tr>
+                    <tr>
+                      <td class="code">--signal</td>
+                      <td><span class="mini-swatch" style="--color:#00bfa5"></span>#00BFA5</td>
+                      <td>品牌识别、确认动作、选中状态。</td>
+                    </tr>
+                    <tr>
+                      <td class="code">--action</td>
+                      <td><span class="mini-swatch" style="--color:#1f5eff"></span>#1F5EFF</td>
+                      <td>主按钮、链接、产品主路径。</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="logo" class="section-signal">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">04 Logo & Diamond</p>
+              <h2>浅色里，钻石靠折射而不是重阴影。</h2>
+            </div>
+            <p>Light Mode 的 Veil mark 要保留同一套几何逻辑：四象限切面、玉青到钴蓝、少量香槟高光。应用上使用更干净的白底图标，避免在浅底上堆过重发光。</p>
+          </div>
+
+          <div class="lockup-demo">
+            <div class="lockup-symbol">
+              <img src="assets/veil-light-app-icon-v1.png" alt="Veil light mode diamond app icon">
+            </div>
+            <div class="lockup-rules">
+              <h3>Light icon standard</h3>
+              <p class="muted">图标底建议为 Pearl White 或 Porcelain，外框使用极浅冰蓝边界。钻石主体保持高透明晶体感，玉青和钴蓝负责识别，香槟金只作为右上切面或高光。</p>
+              <div class="brand-pill-row">
+                <span class="brand-pill">White base</span>
+                <span class="brand-pill">Faceted diamond</span>
+                <span class="brand-pill">No heavy glow</span>
+                <span class="brand-pill">No casino red</span>
+              </div>
+              <div class="clearspace">
+                <div><strong>Clearspace</strong><br>图标四周保留至少 1x 顶点高度，社媒头像和 App icon 不贴边。</div>
+                <div><strong>Minimum size</strong><br>数字界面建议 24px 起，App icon 与招商物料建议保留完整白底容器。</div>
+                <div><strong>On white</strong><br>使用浅冰蓝描边或微阴影，保证边缘可见。</div>
+                <div><strong>On image</strong><br>放在低复杂度区域，禁止叠在强高光或密集数据线中。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="section-white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">05 Product UI</p>
+              <h2>高频界面：浅底、清线、强行动。</h2>
+            </div>
+            <p>App 和 Web 产品是 Light Mode 的主场。列表、图表、行情、市场详情使用白底；状态变化用玉青和钴蓝表达；香槟金只出现在合作、评级、会员或里程碑，不用于日常交易判断。</p>
+          </div>
+
+          <div class="grid cols-2">
+            <div class="image-card">
+              <img src="assets/veil-light-app-ui-v1.png" alt="Veil light mode app and dashboard UI mockup">
+              <div class="caption">
+                <h3>Image2 product visual</h3>
+                <p>适合官网产品页、招商材料、发布会 key visual。</p>
+              </div>
+            </div>
+            <div class="ui-shell" aria-label="Light mode UI structure preview">
+              <div class="ui-nav">
+                <div class="ui-dot"></div>
+                <div class="ui-icon"></div>
+                <div class="ui-icon"></div>
+                <div class="ui-icon"></div>
+                <div class="ui-icon"></div>
+              </div>
+              <div class="ui-main">
+                <div class="ui-title"></div>
+                <div class="ui-chart"></div>
+                <div class="button-row">
+                  <div class="button"></div>
+                  <div class="button alt"></div>
+                </div>
+                <div class="ui-list">
+                  <div class="ui-row"><div class="ui-avatar"></div><div class="ui-lines"><i></i><i></i></div><div class="spark"></div></div>
+                  <div class="ui-row"><div class="ui-avatar"></div><div class="ui-lines"><i></i><i></i></div><div class="spark"></div></div>
+                  <div class="ui-row"><div class="ui-avatar"></div><div class="ui-lines"><i></i><i></i></div><div class="spark"></div></div>
+                </div>
+              </div>
+              <div class="ui-side">
+                <div class="donut"></div>
+                <div class="ui-list">
+                  <div class="ui-row"><div class="ui-avatar"></div><div class="ui-lines"><i></i><i></i></div><div class="spark"></div></div>
+                  <div class="ui-row"><div class="ui-avatar"></div><div class="ui-lines"><i></i><i></i></div><div class="spark"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="application-strip">
+            <div class="application"><strong>Primary CTA</strong><p>钴蓝用于强行动，玉青用于确认与已选。不要同时放两个同权重渐变按钮。</p></div>
+            <div class="application"><strong>Market cards</strong><p>白底卡片、冰蓝 hover、石墨标题、灰蓝辅助信息，让列表可快速扫描。</p></div>
+            <div class="application"><strong>Charts</strong><p>概率线优先用玉青与钴蓝。网格线低对比，避免红绿蜡烛图联想到投机。</p></div>
+            <div class="application"><strong>Forms</strong><p>输入框保持 Porcelain 底，focus 使用玉青边线和极轻发光。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="semantic" class="section-ice">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">06 Data & Semantics</p>
+              <h2>预测市场不要默认红绿化。</h2>
+            </div>
+            <p>亚洲金融界面常见红绿语义在不同地区含义会冲突。Veil 的国际化默认方案使用玉青、钴蓝和石墨灰作为主判断色，只在风险提醒中少量使用珊瑚红。</p>
+          </div>
+          <div class="grid cols-3">
+            <article class="panel">
+              <div class="panel-body">
+                <h3>Probability positive</h3>
+                <p><span class="mini-swatch" style="--color:#00bfa5"></span>Jade 用于支持、上升、确认、成交成功。它比纯绿色更品牌化，也更少带股市地域冲突。</p>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-body">
+                <h3>Action and focus</h3>
+                <p><span class="mini-swatch" style="--color:#1f5eff"></span>Cobalt 用于主行动、当前路径、链接和关键指标。它提供全球化科技感，不会过度地域化。</p>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-body">
+                <h3>Risk and alert</h3>
+                <p><span class="mini-swatch" style="--color:#df6f6c"></span>Risk 珊瑚红只用于错误、失败和强提醒。不要用于营销标题或主视觉，以免出现博彩或紧张感。</p>
+              </div>
+            </article>
+          </div>
+          <div class="grid cols-2" style="margin-top:16px">
+            <article class="panel">
+              <div class="panel-body">
+                <h3>Chart pairing</h3>
+                <ul>
+                  <li>双线对比：Jade vs Cobalt。</li>
+                  <li>第三条辅助线：Slate 或 Champagne，不引入新高饱和色。</li>
+                  <li>置信区间：同色 10% 到 16% 透明度。</li>
+                  <li>极端风险：Risk 只标注阈值或 error state。</li>
+                </ul>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-body">
+                <h3>Localization</h3>
+                <ul>
+                  <li>中国、日本、韩国、新加坡和欧美版本可以保持同一套主色。</li>
+                  <li>农历新年、合作活动可以增加 Champagne 比例，但不把红金变成长期主色。</li>
+                  <li>英文、中文、日文和韩文界面都使用同样的表面与边线 token。</li>
+                  <li>地区差异放在图形节奏和文案语气，不放在核心品牌色。</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="social" class="section-white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">07 Social & Campaign</p>
+              <h2>社媒浅色版：留白就是高级感。</h2>
+            </div>
+            <p>社媒内容要区别于普通 crypto 风格。Light Mode 的视觉重点是钻石、曲线、半透明 UI 和大量空白，适合 X、LinkedIn、微信公众号封面、小红书封面、招商邀请图。</p>
+          </div>
+
+          <div class="social-grid">
+            <div class="template-card feed">
+              <img src="assets/veil-light-social-feed-v1.png" alt="Square light mode social template">
+              <div class="template-label">1:1 Feed <span>insight / announcement</span></div>
+            </div>
+            <div class="template-card story">
+              <img src="assets/veil-light-social-story-v1.png" alt="Vertical light mode story template">
+              <div class="template-label">9:16 Story <span>event / launch</span></div>
+            </div>
+          </div>
+
+          <div class="application-strip">
+            <div class="application"><strong>Feed open</strong><p>上半部留白给标题，下半部放钻石、曲线和信息卡。标题建议石墨色，关键词用 Jade。</p></div>
+            <div class="application"><strong>Story/Reel</strong><p>竖版使用中心钻石与下方 UI 卡。CTA 可用 Cobalt，活动标签可用 Champagne。</p></div>
+            <div class="application"><strong>LinkedIn/X</strong><p>横图保持左侧文字、右侧钻石或 UI。避免密集小字，保留 12% 安全边距。</p></div>
+            <div class="application"><strong>CN social</strong><p>公众号、小红书和视频号可提高标题尺寸，但不要把背景改成红金节庆风。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="offline" class="section-signal">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">08 Deck, Print & Offline</p>
+              <h2>招商和线下物料要更像研究机构。</h2>
+            </div>
+            <p>线下展台、招商手册、投资人 deck、易拉宝和会议屏幕可以使用更大留白和更少颜色。让品牌显得稳、贵、可信，而不是抢夺注意力。</p>
+          </div>
+
+          <div class="deck-preview">
+            <img src="assets/veil-light-deck-bg-v1.png" alt="Light mode investor deck background">
+            <div class="deck-frame">
+              <div class="deck-title">
+                <p class="eyebrow">Investor / Partnership Deck</p>
+                <h3>Prediction markets for clear signals.</h3>
+                <p>招商、融资、BD 和活动首页推荐使用白底大图、单一主标题、少量玉青或钴蓝强调。</p>
+              </div>
+              <div class="deck-card">
+                <h3>Print ratio</h3>
+                <p>白底 62% / 冰蓝 20% / 石墨 12% / 品牌色 6%。香槟金仅用于页码、章节或 partner badge。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid cols-3" style="margin-top:16px">
+            <article class="panel"><div class="panel-body"><h3>Deck</h3><p>封面用浅色 key visual，内页用 Pearl White 和 Ice Surface。每页只保留一个品牌色焦点。</p></div></article>
+            <article class="panel"><div class="panel-body"><h3>Booth</h3><p>远距离识别靠钻石符号和钴蓝线条。展台墙面不铺满图案，保留干净白面。</p></div></article>
+            <article class="panel"><div class="panel-body"><h3>Merch</h3><p>白、银、冰蓝为主，图标可以局部烫银或局部 UV。避免大面积金色造成奢侈品或赌场联想。</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="rules" class="section-white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">09 Light Mode Rules</p>
+              <h2>可复制的设计标准。</h2>
+            </div>
+            <p>这套浅色系统可以直接作为 UI、营销和品牌团队的协作标准。核心判断：白底要干净，颜色要少，信号要准，钻石要像资产而不是装饰。</p>
+          </div>
+
+          <div class="rule-grid">
+            <article class="rule-card">
+              <div class="rule-visual" style="--bg:#f7fafc">
+                <div class="rule-chip" style="--fill:#ffffff;--text:#17202c">Do</div>
+              </div>
+              <div class="panel-body">
+                <h3>Use restraint</h3>
+                <ul>
+                  <li>白底 + 冰蓝边线 + 石墨文字作为默认组合。</li>
+                  <li>用 Jade 表示品牌信号和确认，用 Cobalt 表示主行动。</li>
+                  <li>图像中保留真实留白，让标题、二维码、CTA 有稳定空间。</li>
+                  <li>跨亚洲和欧美市场保持同一套核心 token。</li>
+                </ul>
+              </div>
+            </article>
+            <article class="rule-card">
+              <div class="rule-visual" style="--bg:#ffffff">
+                <div class="rule-chip" style="--fill:linear-gradient(135deg,#ff4343,#ffe03d,#00ff87,#1f5eff);--text:#17202c">Don't</div>
+              </div>
+              <div class="panel-body">
+                <h3>Avoid visual noise</h3>
+                <ul>
+                  <li>不要用红绿作为默认涨跌系统，国际化语义会冲突。</li>
+                  <li>不要大面积霓虹渐变、彩虹高光、币圈粒子和赌场红金。</li>
+                  <li>不要把每个按钮都做成双主色渐变，交互层级会混乱。</li>
+                  <li>不要在浅底上使用过重阴影，容易显得模板化。</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="panel" style="margin-top:16px">
+            <div class="panel-body">
+              <div class="spec-line"><strong>Accessibility</strong><span>正文使用 Graphite 或 Ink，不用 Slate 作为长段正文。品牌色用于小字时需要加深到 Jade Deep 或 Cobalt Deep。</span></div>
+              <div class="spec-line"><strong>Components</strong><span>默认卡片半径 8px，边线 #D8E5ED，阴影轻而短。密集产品界面不使用大圆角玻璃卡片。</span></div>
+              <div class="spec-line"><strong>Imagery</strong><span>主视觉使用透明钻石、数据曲线、白色空间和冰蓝光，不使用人物、硬币、赌博符号或红绿蜡烛图。</span></div>
+              <div class="spec-line"><strong>Localization</strong><span>中文物料可以提高标题密度，英文物料可以增加留白，但核心色彩比例不变。</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="assets" class="section-ice">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">10 Asset Library</p>
+              <h2>Light Mode Image2 assets.</h2>
+            </div>
+            <p>以下资产已经复制到当前项目的 assets 文件夹，可直接用于 HTML、deck、社媒视觉和线下物料。所有图都遵循无文字、无水印、无人物、无硬币、无博彩符号的生成约束。</p>
+          </div>
+
+          <div class="asset-grid">
+            <article class="asset">
+              <div class="asset-media"><img src="assets/veil-light-hero-v1.png" alt="Light hero visual"></div>
+              <div class="asset-body"><h3>Hero visual</h3><p class="code">assets/veil-light-hero-v1.png</p></div>
+            </article>
+            <article class="asset">
+              <div class="asset-media"><img src="assets/veil-light-app-ui-v1.png" alt="Light app UI visual"></div>
+              <div class="asset-body"><h3>Product UI</h3><p class="code">assets/veil-light-app-ui-v1.png</p></div>
+            </article>
+            <article class="asset">
+              <div class="asset-media"><img src="assets/veil-light-social-feed-v1.png" alt="Light social feed visual"></div>
+              <div class="asset-body"><h3>Social feed</h3><p class="code">assets/veil-light-social-feed-v1.png</p></div>
+            </article>
+            <article class="asset">
+              <div class="asset-media"><img src="assets/veil-light-social-story-v1.png" alt="Light social story visual"></div>
+              <div class="asset-body"><h3>Social story</h3><p class="code">assets/veil-light-social-story-v1.png</p></div>
+            </article>
+            <article class="asset">
+              <div class="asset-media"><img src="assets/veil-light-deck-bg-v1.png" alt="Light deck background"></div>
+              <div class="asset-body"><h3>Deck background</h3><p class="code">assets/veil-light-deck-bg-v1.png</p></div>
+            </article>
+            <article class="asset">
+              <div class="asset-media"><img src="assets/veil-light-pattern-v1.png" alt="Light brand pattern"></div>
+              <div class="asset-body"><h3>Brand pattern</h3><p class="code">assets/veil-light-pattern-v1.png</p></div>
+            </article>
+            <article class="asset">
+              <div class="asset-media"><img src="assets/veil-light-app-icon-v1.png" alt="Light app icon"></div>
+              <div class="asset-body"><h3>App icon</h3><p class="code">assets/veil-light-app-icon-v1.png</p></div>
+            </article>
+            <article class="asset">
+              <div class="asset-media" style="background:linear-gradient(135deg,#fff,#eef5f8 48%,#dcecf6)"></div>
+              <div class="asset-body"><h3>Palette tokens</h3><p class="code">Pearl / Ice / Jade / Cobalt / Champagne / Graphite</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="section-inner">Veil Light Mode Palette Board · Built with built-in Image2 assets · Direction: Pearl Signal · Static HTML brand system</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

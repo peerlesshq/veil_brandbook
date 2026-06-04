@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Veil logo option B - Aperture V</title>
+  <desc id="desc">A minimal diamond outline mark with an aperture-like V and a central probability beam.</desc>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="#FFFFFF"/>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="none" stroke="#17202C" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M64 128 106 94 96 128 106 162Z" fill="#00BFA5"/>
+  <path d="M192 128 150 94 160 128 150 162Z" fill="#1F5EFF"/>
+  <path d="M78 128 112 82 128 218 144 82 178 128 158 128 145 106 132 188 128 210 124 188 111 106 98 128Z" fill="#17202C"/>
+  <path d="M122 189 128 216 134 189 128 177Z" fill="#C9A95F"/>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="none" stroke="#17202C" stroke-width="2" stroke-linejoin="round" opacity=".2"/>
+</svg>

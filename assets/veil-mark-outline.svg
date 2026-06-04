@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Veil outline aperture mark</title>
+  <desc id="desc">An outline diamond aperture mark with a central V-shaped reveal and signal facets.</desc>
+  <path d="M128 12 244 128 128 244 12 128Z" fill="none" stroke="#101318" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M92 86 128 198 164 86" fill="none" stroke="#101318" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55 128 98 96 114 128 98 160Z" fill="none" stroke="#18C7B6" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M201 128 158 96 142 128 158 160Z" fill="none" stroke="#F2B84B" stroke-width="10" stroke-linejoin="round"/>
+</svg>

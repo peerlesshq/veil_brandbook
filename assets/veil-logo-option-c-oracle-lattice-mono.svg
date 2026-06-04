@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Veil logo option C monochrome</title>
+  <desc id="desc">Monochrome version of the Oracle Lattice mark.</desc>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="#FFFFFF"/>
+  <path d="M128 18 238 128 128 238 18 128Z" fill="none" stroke="#17202C" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M128 18V238M18 128H238M60 86 196 170M60 170 196 86M60 86 128 128 60 170M196 86 128 128 196 170" fill="none" stroke="#17202C" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="128" cy="18" r="5.5" fill="#17202C"/>
+  <circle cx="238" cy="128" r="5.5" fill="#17202C"/>
+  <circle cx="128" cy="238" r="5.5" fill="#17202C"/>
+  <circle cx="18" cy="128" r="5.5" fill="#17202C"/>
+  <circle cx="60" cy="86" r="5.5" fill="#17202C"/>
+  <circle cx="60" cy="170" r="5.5" fill="#17202C"/>
+  <circle cx="196" cy="86" r="5.5" fill="#17202C"/>
+  <circle cx="196" cy="170" r="5.5" fill="#17202C"/>
+  <circle cx="128" cy="128" r="6.5" fill="#17202C"/>
+</svg>
