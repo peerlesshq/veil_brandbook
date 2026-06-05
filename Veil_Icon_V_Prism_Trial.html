@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veil V-Prism Icon Trial</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:opsz,wght@14..32,400..900&display=swap");
+
+    :root {
+      --font-ui: "Inter Variable", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Source Han Sans SC Variable", "Source Han Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-display: "Inter Tight", "Inter Tight Variable", "Inter Variable", Inter, ui-sans-serif, system-ui, sans-serif;
+      --ink-980: #03070b;
+      --ink-940: #071019;
+      --ink-900: #0a1420;
+      --ink-840: #101d2b;
+      --graphite-800: #17202c;
+      --graphite-700: #273240;
+      --slate-600: #52606d;
+      --line-dark: rgba(255, 255, 255, .12);
+      --line-light: #d8e5ed;
+      --paper: #ffffff;
+      --porcelain: #f7fafc;
+      --pearl: #eef5f8;
+      --ice: #dcecf6;
+      --jade: #00bfa5;
+      --jade-deep: #008f82;
+      --cobalt: #1f5eff;
+      --cobalt-deep: #173ec8;
+      --sky: #8bd8ff;
+      --champagne: #c9a95f;
+      --champagne-soft: #f4e6bd;
+      --radius: 8px;
+      --icon-left-hi: #eef5f8;
+      --icon-left-mid: #8bd8ff;
+      --icon-left-core: #1f5eff;
+      --icon-left-base: #0a1420;
+      --icon-right-hi: #eef5f8;
+      --icon-right-mid: #8bd8ff;
+      --icon-right-core: #00bfa5;
+      --icon-right-base: #0a1420;
+      --icon-center-hi: #f7fafc;
+      --icon-center-mid: #8bd8ff;
+      --icon-center-base: #273240;
+      --icon-dark-core: #071019;
+      --icon-dark-left: #0c2142;
+      --icon-dark-right: #073a36;
+      --icon-left-tip: #1f5eff;
+      --icon-right-tip: #008f82;
+      font-family: var(--font-ui);
+      color: var(--graphite-800);
+      background: var(--porcelain);
+    }
+
+    body[data-scheme="cobalt"] {
+      --icon-left-hi: #f7fafc;
+      --icon-left-mid: #8bd8ff;
+      --icon-left-core: #1f5eff;
+      --icon-left-base: #071019;
+      --icon-right-hi: #eef5f8;
+      --icon-right-mid: #8bd8ff;
+      --icon-right-core: #1f5eff;
+      --icon-right-base: #101d2b;
+      --icon-center-hi: #eef5f8;
+      --icon-center-mid: #8bd8ff;
+      --icon-center-base: #17202c;
+      --icon-dark-core: #071019;
+      --icon-dark-left: #0c2142;
+      --icon-dark-right: #101d2b;
+      --icon-left-tip: #1f5eff;
+      --icon-right-tip: #008f82;
+    }
+
+    body[data-scheme="jade"] {
+      --icon-left-hi: #eef5f8;
+      --icon-left-mid: #8bd8ff;
+      --icon-left-core: #1f5eff;
+      --icon-left-base: #101d2b;
+      --icon-right-hi: #f7fafc;
+      --icon-right-mid: #8bd8ff;
+      --icon-right-core: #00bfa5;
+      --icon-right-base: #071019;
+      --icon-center-hi: #f7fafc;
+      --icon-center-mid: #00bfa5;
+      --icon-center-base: #17202c;
+      --icon-dark-core: #071019;
+      --icon-dark-left: #0a1420;
+      --icon-dark-right: #073a36;
+      --icon-left-tip: #1f5eff;
+      --icon-right-tip: #00bfa5;
+    }
+
+    body[data-scheme="premium"] {
+      --icon-left-hi: #eef5f8;
+      --icon-left-mid: #8bd8ff;
+      --icon-left-core: #1f5eff;
+      --icon-left-base: #071019;
+      --icon-right-hi: #f4e6bd;
+      --icon-right-mid: #8bd8ff;
+      --icon-right-core: #00bfa5;
+      --icon-right-base: #0a1420;
+      --icon-center-hi: #f7fafc;
+      --icon-center-mid: #8bd8ff;
+      --icon-center-base: #17202c;
+      --icon-dark-core: #071019;
+      --icon-dark-left: #0c2142;
+      --icon-dark-right: #073a36;
+      --icon-left-tip: #1f5eff;
+      --icon-right-tip: #008f82;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .95) 0%, rgba(247, 250, 252, .96) 48%, rgba(238, 245, 248, .98) 100%);
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 34px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0 26px;
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .mini-mark {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink-940);
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 56px);
+      font-weight: 860;
+      letter-spacing: 0;
+      line-height: .95;
+    }
+
+    .meta {
+      margin: 6px 0 0;
+      color: var(--slate-600);
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      padding: 9px 12px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      color: var(--graphite-700);
+      background: rgba(255, 255, 255, .76);
+      font-size: 12px;
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .scheme-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding: 22px 0 0;
+    }
+
+    .scheme-card {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 14px 34px rgba(23, 32, 44, .07);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+
+    .scheme-card:hover,
+    .scheme-card.is-active {
+      border-color: rgba(31, 94, 255, .42);
+      box-shadow: 0 18px 44px rgba(31, 94, 255, .12);
+      transform: translateY(-1px);
+    }
+
+    .scheme-card.is-active {
+      background: linear-gradient(180deg, #fff, rgba(238, 245, 248, .72));
+    }
+
+    .scheme-card svg {
+      width: 76px;
+      height: 76px;
+      border: 1px solid rgba(216, 229, 237, .86);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(139, 216, 255, .24), transparent 40%),
+        linear-gradient(145deg, #fff, #eef5f8);
+    }
+
+    .scheme-copy {
+      min-width: 0;
+    }
+
+    .scheme-copy strong {
+      display: block;
+      color: var(--ink-940);
+      font-family: var(--font-display);
+      font-size: 19px;
+      line-height: 1.05;
+    }
+
+    .scheme-copy span {
+      display: block;
+      margin-top: 6px;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .scheme-swatches {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .scheme-swatches i {
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(23, 32, 44, .08);
+      border-radius: 5px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr);
+      gap: 22px;
+      padding: 26px 0;
+    }
+
+    .stage {
+      min-height: 650px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 18% 74%, rgba(0, 191, 165, .2), transparent 28%),
+        radial-gradient(circle at 76% 28%, rgba(31, 94, 255, .24), transparent 30%),
+        linear-gradient(145deg, #03070b 0%, #071019 46%, #101d2b 100%);
+      box-shadow: 0 26px 80px rgba(3, 7, 11, .24);
+    }
+
+    .stage::before,
+    .stage::after {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius);
+    }
+
+    .stage::after {
+      inset: auto 52px 52px;
+      height: 1px;
+      border: 0;
+      background: linear-gradient(90deg, transparent, rgba(139, 216, 255, .4), rgba(201, 169, 95, .32), transparent);
+    }
+
+    .hero-mark {
+      position: relative;
+      z-index: 1;
+      width: min(62vw, 440px);
+      aspect-ratio: 1;
+    }
+
+    .notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel {
+      min-height: 150px;
+      padding: 24px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 18px 48px rgba(23, 32, 44, .08);
+    }
+
+    .panel.dark {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .1);
+      background:
+        linear-gradient(145deg, rgba(7, 16, 25, .96), rgba(16, 29, 43, .96)),
+        var(--ink-940);
+      box-shadow: 0 22px 70px rgba(3, 7, 11, .18);
+    }
+
+    h2,
+    h3 {
+      margin: 0;
+      color: inherit;
+      font-family: var(--font-display);
+      font-weight: 840;
+      letter-spacing: 0;
+      line-height: 1.02;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3vw, 48px);
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    p {
+      margin: 12px 0 0;
+      color: var(--slate-600);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .dark p {
+      color: rgba(255, 255, 255, .64);
+    }
+
+    .spec-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 14px;
+      align-items: baseline;
+      padding-top: 10px;
+      border-top: 1px solid rgba(216, 229, 237, .86);
+      color: var(--graphite-700);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .dark .spec-row {
+      border-color: rgba(255, 255, 255, .1);
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .spec-row strong {
+      color: var(--ink-940);
+      font-size: 12px;
+      font-weight: 820;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .dark .spec-row strong {
+      color: rgba(255, 255, 255, .92);
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      padding-top: 4px;
+    }
+
+    .size-system {
+      display: grid;
+      gap: 16px;
+      padding-top: 22px;
+    }
+
+    .size-hero {
+      display: grid;
+      grid-template-columns: minmax(420px, .9fr) minmax(0, 1.1fr);
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 18px 48px rgba(23, 32, 44, .07);
+    }
+
+    .construction {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 460px;
+      overflow: hidden;
+      border: 1px solid rgba(216, 229, 237, .9);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(rgba(82, 96, 109, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(82, 96, 109, .08) 1px, transparent 1px),
+        #fff;
+      background-size: 32px 32px;
+    }
+
+    .construction::before {
+      content: "";
+      position: absolute;
+      inset: 48px;
+      border: 1px dashed rgba(31, 94, 255, .38);
+      border-radius: 28px;
+      pointer-events: none;
+    }
+
+    .construction::after {
+      content: "1024 canvas / 672 mark box";
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      color: var(--slate-600);
+      font-size: 11px;
+      font-weight: 820;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .construction svg {
+      width: min(70%, 330px);
+      height: auto;
+      z-index: 1;
+    }
+
+    .guide-line {
+      position: absolute;
+      background: rgba(0, 191, 165, .55);
+      pointer-events: none;
+    }
+
+    .guide-line.vertical {
+      left: 50%;
+      top: 50px;
+      width: 1px;
+      height: calc(100% - 100px);
+    }
+
+    .guide-line.top {
+      left: 50%;
+      top: 91px;
+      width: 34%;
+      height: 1px;
+      transform: translateX(-50%);
+    }
+
+    .guide-line.waist {
+      left: 50%;
+      top: 59.4%;
+      width: 40%;
+      height: 1px;
+      transform: translateX(-50%);
+      background: rgba(31, 94, 255, .48);
+    }
+
+    .guide-line.tip {
+      left: 50%;
+      bottom: 74px;
+      width: 28%;
+      height: 1px;
+      transform: translateX(-50%);
+      background: rgba(201, 169, 95, .54);
+    }
+
+    .dimension-notes {
+      display: grid;
+      gap: 12px;
+    }
+
+    .dimension-table {
+      width: 100%;
+      min-width: 0;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      font-size: 13px;
+    }
+
+    .dimension-table th,
+    .dimension-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(216, 229, 237, .86);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .dimension-table th {
+      color: var(--slate-600);
+      font-size: 11px;
+      font-weight: 840;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .dimension-table td {
+      color: var(--graphite-700);
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .size-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .size-ladder {
+      display: flex;
+      align-items: end;
+      gap: 18px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 8px 0 2px;
+    }
+
+    .size-sample {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: var(--box);
+      height: var(--box);
+      border: 1px solid rgba(216, 229, 237, .9);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 14px 28px rgba(23, 32, 44, .08);
+    }
+
+    .size-sample.dark-sample {
+      border-color: rgba(255, 255, 255, .12);
+      background: var(--ink-940);
+    }
+
+    .size-sample svg {
+      width: var(--mark);
+      height: var(--mark);
+    }
+
+    .size-caption {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .size-caption strong {
+      color: var(--ink-940);
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 1.05;
+    }
+
+    .size-caption span {
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .preview {
+      display: grid;
+      gap: 14px;
+      min-width: 0;
+      min-height: 280px;
+      padding: 18px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .preview.dark-preview {
+      border-color: rgba(255, 255, 255, .11);
+      background: linear-gradient(145deg, var(--ink-980), var(--ink-840));
+    }
+
+    .tile {
+      display: grid;
+      place-items: center;
+      min-height: 190px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid rgba(216, 229, 237, .92);
+      overflow: hidden;
+    }
+
+    .tile.dark-tile {
+      border-color: rgba(255, 255, 255, .1);
+      background:
+        radial-gradient(circle at 30% 28%, rgba(139, 216, 255, .18), transparent 34%),
+        linear-gradient(145deg, var(--ink-980), var(--ink-900));
+    }
+
+    .tile.app-light {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(238, 245, 248, .88)),
+        var(--paper);
+    }
+
+    .tile.app-dark {
+      background:
+        radial-gradient(circle at 66% 20%, rgba(31, 94, 255, .25), transparent 32%),
+        radial-gradient(circle at 18% 78%, rgba(0, 191, 165, .18), transparent 34%),
+        linear-gradient(145deg, #03070b, #071019 55%, #17202c);
+    }
+
+    .tile-label {
+      color: var(--slate-600);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .dark-preview .tile-label {
+      color: rgba(255, 255, 255, .56);
+    }
+
+    .sizes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      width: 100%;
+      min-height: 190px;
+    }
+
+    .size-check {
+      display: grid;
+      place-items: center;
+      background: #fff;
+      border: 1px solid rgba(216, 229, 237, .88);
+      border-radius: 8px;
+      box-shadow: 0 16px 34px rgba(23, 32, 44, .08);
+    }
+
+    .size-check.dark-size {
+      background: var(--ink-940);
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 7px;
+    }
+
+    .audit {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 16px;
+      padding-top: 22px;
+    }
+
+    .audit-card {
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 16px 44px rgba(23, 32, 44, .07);
+    }
+
+    .audit-card.dark-audit {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .1);
+      background: linear-gradient(145deg, var(--ink-980), var(--ink-840));
+    }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .audit-item {
+      padding: 14px;
+      border: 1px solid rgba(216, 229, 237, .9);
+      border-radius: 8px;
+      background: rgba(247, 250, 252, .78);
+    }
+
+    .dark-audit .audit-item {
+      border-color: rgba(255, 255, 255, .11);
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .audit-item strong {
+      display: block;
+      color: var(--ink-940);
+      font-size: 13px;
+      font-weight: 840;
+    }
+
+    .dark-audit .audit-item strong {
+      color: #fff;
+    }
+
+    .audit-item span {
+      display: block;
+      margin-top: 7px;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .dark-audit .audit-item span {
+      color: rgba(255, 255, 255, .64);
+    }
+
+    .contrast-table {
+      width: 100%;
+      margin-top: 16px;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .contrast-table th,
+    .contrast-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .contrast-table th {
+      color: rgba(255, 255, 255, .56);
+      font-weight: 820;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .contrast-table td {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .pass {
+      color: #8bd8ff;
+      font-weight: 840;
+    }
+
+    .warn {
+      color: #f4e6bd;
+      font-weight: 840;
+    }
+
+    @media (max-width: 1040px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .scheme-board {
+        grid-template-columns: 1fr;
+      }
+
+      .audit {
+        grid-template-columns: 1fr;
+      }
+
+      .size-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        padding: 20px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stage {
+        min-height: 420px;
+      }
+
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview {
+        grid-column: auto !important;
+      }
+
+      .sizes {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .audit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .size-hero {
+        padding: 16px;
+      }
+
+      .construction {
+        min-height: 360px;
+      }
+
+      .size-row {
+        grid-template-columns: 1fr;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .dimension-table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body data-scheme="premium">
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <linearGradient id="vp-left-bright" x1="124" y1="86" x2="236" y2="318" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="var(--icon-left-hi)"/>
+        <stop offset=".28" stop-color="var(--icon-left-mid)"/>
+        <stop offset=".72" stop-color="var(--icon-left-core)"/>
+        <stop offset="1" stop-color="var(--icon-left-base)"/>
+      </linearGradient>
+      <linearGradient id="vp-left-dark" x1="111" y1="116" x2="194" y2="352" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#17202c"/>
+        <stop offset=".6" stop-color="#071019"/>
+        <stop offset="1" stop-color="#1f5eff"/>
+      </linearGradient>
+      <linearGradient id="vp-right-bright" x1="388" y1="88" x2="278" y2="316" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="var(--icon-right-hi)"/>
+        <stop offset=".3" stop-color="var(--icon-right-mid)"/>
+        <stop offset=".74" stop-color="var(--icon-right-core)"/>
+        <stop offset="1" stop-color="var(--icon-right-base)"/>
+      </linearGradient>
+      <linearGradient id="vp-right-dark" x1="404" y1="118" x2="317" y2="352" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#17202c"/>
+        <stop offset=".62" stop-color="#071019"/>
+        <stop offset="1" stop-color="#00bfa5"/>
+      </linearGradient>
+      <linearGradient id="vp-center" x1="256" y1="202" x2="256" y2="430" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="var(--icon-center-hi)"/>
+        <stop offset=".34" stop-color="var(--icon-center-mid)"/>
+        <stop offset="1" stop-color="var(--icon-center-base)"/>
+      </linearGradient>
+      <linearGradient id="vp-center-dark" x1="282" y1="226" x2="256" y2="320" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#17202c"/>
+        <stop offset=".46" stop-color="var(--icon-dark-core)"/>
+        <stop offset="1" stop-color="var(--icon-dark-right)"/>
+      </linearGradient>
+      <linearGradient id="vp-lower-left" x1="196" y1="284" x2="266" y2="438" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#101d2b"/>
+        <stop offset=".42" stop-color="var(--icon-dark-core)"/>
+        <stop offset=".74" stop-color="var(--icon-dark-left)"/>
+        <stop offset="1" stop-color="var(--icon-left-tip)"/>
+      </linearGradient>
+      <linearGradient id="vp-lower-right" x1="318" y1="284" x2="256" y2="438" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#101d2b"/>
+        <stop offset=".44" stop-color="var(--icon-dark-core)"/>
+        <stop offset=".76" stop-color="var(--icon-dark-right)"/>
+        <stop offset="1" stop-color="var(--icon-right-tip)"/>
+      </linearGradient>
+      <linearGradient id="vp-glint" x1="146" y1="111" x2="370" y2="350" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#c9a95f" stop-opacity=".72"/>
+        <stop offset=".46" stop-color="#ffffff" stop-opacity=".62"/>
+        <stop offset="1" stop-color="#8bd8ff" stop-opacity=".46"/>
+      </linearGradient>
+      <filter id="vp-shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+        <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#03070b" flood-opacity=".38"/>
+        <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#8bd8ff" flood-opacity=".14"/>
+      </filter>
+      <filter id="vp-soft-shadow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+        <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#17202c" flood-opacity=".16"/>
+      </filter>
+      <symbol id="veil-v-prism-icon" viewBox="0 0 512 512">
+        <g filter="url(#vp-shadow)">
+          <path d="M256 432 132 304 88 96l142 130 26-18 26 18L424 96l-44 208Z" fill="#071019" opacity=".78"/>
+          <path d="M88 96 230 226 204 304 132 304Z" fill="url(#vp-left-bright)"/>
+          <path d="M424 96 282 226 308 304 380 304Z" fill="url(#vp-right-bright)"/>
+          <path d="M230 226 256 208 256 320 204 304Z" fill="url(#vp-center)"/>
+          <path d="M282 226 256 208 256 320 308 304Z" fill="url(#vp-center-dark)"/>
+          <path d="M204 304 256 320 256 432Z" fill="url(#vp-lower-left)"/>
+          <path d="M308 304 256 320 256 432Z" fill="url(#vp-lower-right)"/>
+          <path d="M88 96 230 226 204 304 256 432 308 304 282 226 424 96" fill="none" stroke="rgba(255,255,255,.46)" stroke-width="3.2" stroke-linejoin="round"/>
+          <path d="M256 208V432" stroke="rgba(255,255,255,.38)" stroke-width="2.2"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <svg class="mini-mark" viewBox="0 0 512 512" role="img" aria-label="Veil V-Prism icon small preview">
+          <use href="#veil-v-prism-icon"></use>
+        </svg>
+        <div>
+          <h1>V-Prism Icon Trial</h1>
+          <p class="meta">Veil Market / 只测试新 ICON 形状 / 色彩和品牌标准沿用 Brand Book</p>
+        </div>
+      </div>
+      <span class="badge">Icon Only</span>
+    </header>
+
+    <section class="scheme-board" aria-label="Icon color scheme selector">
+      <button class="scheme-card" type="button" data-scheme-option="premium" aria-pressed="true">
+        <svg viewBox="0 0 512 512" aria-hidden="true" style="--icon-left-hi:#eef5f8;--icon-left-mid:#8bd8ff;--icon-left-core:#1f5eff;--icon-left-base:#071019;--icon-right-hi:#f4e6bd;--icon-right-mid:#8bd8ff;--icon-right-core:#00bfa5;--icon-right-base:#0a1420;--icon-center-hi:#f7fafc;--icon-center-mid:#8bd8ff;--icon-center-base:#17202c;--icon-dark-core:#071019;--icon-dark-left:#0c2142;--icon-dark-right:#073a36;--icon-left-tip:#1f5eff;--icon-right-tip:#008f82"><use href="#veil-v-prism-icon"></use></svg>
+        <span class="scheme-copy">
+          <strong>01 Premium Signal</strong>
+          <span>推荐。蓝绿双信号不变，右上加入极轻 Champagne 温度，更适合品牌主 Icon。</span>
+          <span class="scheme-swatches"><i style="background:#071019"></i><i style="background:#1f5eff"></i><i style="background:#00bfa5"></i><i style="background:#8bd8ff"></i><i style="background:#c9a95f"></i></span>
+        </span>
+      </button>
+
+      <button class="scheme-card" type="button" data-scheme-option="cobalt" aria-pressed="false">
+        <svg viewBox="0 0 512 512" aria-hidden="true" style="--icon-left-hi:#f7fafc;--icon-left-mid:#8bd8ff;--icon-left-core:#1f5eff;--icon-left-base:#071019;--icon-right-hi:#eef5f8;--icon-right-mid:#8bd8ff;--icon-right-core:#1f5eff;--icon-right-base:#101d2b;--icon-center-hi:#eef5f8;--icon-center-mid:#8bd8ff;--icon-center-base:#17202c;--icon-dark-core:#071019;--icon-dark-left:#0c2142;--icon-dark-right:#101d2b;--icon-left-tip:#1f5eff;--icon-right-tip:#008f82"><use href="#veil-v-prism-icon"></use></svg>
+        <span class="scheme-copy">
+          <strong>02 Cobalt Authority</strong>
+          <span>更偏金融科技和交易理性，蓝色占主导，Jade 只作为底部信号保留。</span>
+          <span class="scheme-swatches"><i style="background:#071019"></i><i style="background:#1f5eff"></i><i style="background:#8bd8ff"></i><i style="background:#17202c"></i><i style="background:#008f82"></i></span>
+        </span>
+      </button>
+
+      <button class="scheme-card" type="button" data-scheme-option="jade" aria-pressed="false">
+        <svg viewBox="0 0 512 512" aria-hidden="true" style="--icon-left-hi:#eef5f8;--icon-left-mid:#8bd8ff;--icon-left-core:#1f5eff;--icon-left-base:#101d2b;--icon-right-hi:#f7fafc;--icon-right-mid:#8bd8ff;--icon-right-core:#00bfa5;--icon-right-base:#071019;--icon-center-hi:#f7fafc;--icon-center-mid:#00bfa5;--icon-center-base:#17202c;--icon-dark-core:#071019;--icon-dark-left:#0a1420;--icon-dark-right:#073a36;--icon-left-tip:#1f5eff;--icon-right-tip:#00bfa5"><use href="#veil-v-prism-icon"></use></svg>
+        <span class="scheme-copy">
+          <strong>03 Jade Clarity</strong>
+          <span>更轻、更亚洲市场友好，Jade 识别更强，适合增长、会员和社媒头像。</span>
+          <span class="scheme-swatches"><i style="background:#071019"></i><i style="background:#00bfa5"></i><i style="background:#8bd8ff"></i><i style="background:#1f5eff"></i><i style="background:#008f82"></i></span>
+        </span>
+      </button>
+    </section>
+
+    <section class="hero" aria-label="Veil V-Prism icon concept">
+      <div class="stage">
+        <svg class="hero-mark" viewBox="0 0 512 512" role="img" aria-label="Veil V-Prism icon">
+          <use href="#veil-v-prism-icon"></use>
+        </svg>
+      </div>
+
+      <div class="notes">
+        <article class="panel">
+          <h2>形状方向</h2>
+          <p>这个版本把参考图里的晶体双翼抽象成一个更可注册、更适合 App 图标的小型标志。上方是预测市场的双向判断，中间是可见的概率折面，下方尖锥代表“提前看见信号”。</p>
+          <div class="spec-list">
+            <div class="spec-row"><strong>Structure</strong><span>外轮廓保持 V 型识别，内部只保留 7 个主要折面和 1 条中心脊线，优先保证手机 App 图标识别。</span></div>
+            <div class="spec-row"><strong>Ratio</strong><span>采用 φ 构造：外框 336x336；上半段 208、下半段 128，比例 1.625，接近黄金比例 1.618。</span></div>
+            <div class="spec-row"><strong>Color</strong><span>采用国际产品品牌的克制配色：Cobalt/Jade 为双信号，暗面改为 Ink-tinted blue/teal shadow，不用中性灰。</span></div>
+          </div>
+        </article>
+
+        <article class="panel dark">
+          <h3>品牌语气</h3>
+          <p>比普通钻石更像“市场信号”，但不靠复杂碎面取胜。它在 App 图标、社媒头像、PPT 封面和线下物料里都能保持一个明确轮廓。</p>
+          <div class="palette" aria-label="Veil color chips">
+            <span class="chip" style="background:#03070b"></span>
+            <span class="chip" style="background:#071019"></span>
+            <span class="chip" style="background:#17202c"></span>
+            <span class="chip" style="background:#00bfa5"></span>
+            <span class="chip" style="background:#1f5eff"></span>
+            <span class="chip" style="background:#8bd8ff"></span>
+            <span class="chip" style="background:#c9a95f"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="preview-grid" aria-label="Icon application previews">
+      <article class="preview">
+        <div class="tile">
+          <svg style="width:148px;height:148px" viewBox="0 0 512 512" role="img" aria-label="Standalone icon on light background">
+            <use href="#veil-v-prism-icon"></use>
+          </svg>
+        </div>
+        <span class="tile-label">Standalone / Light</span>
+      </article>
+
+      <article class="preview dark-preview">
+        <div class="tile dark-tile">
+          <svg style="width:150px;height:150px" viewBox="0 0 512 512" role="img" aria-label="Standalone icon on dark background">
+            <use href="#veil-v-prism-icon"></use>
+          </svg>
+        </div>
+        <span class="tile-label">Standalone / Dark</span>
+      </article>
+
+      <article class="preview">
+        <div class="tile app-light">
+          <svg style="width:132px;height:132px" viewBox="0 0 512 512" role="img" aria-label="Light app icon preview">
+            <use href="#veil-v-prism-icon"></use>
+          </svg>
+        </div>
+        <span class="tile-label">App Tile / Light Mode</span>
+      </article>
+
+      <article class="preview dark-preview">
+        <div class="tile app-dark">
+          <svg style="width:132px;height:132px" viewBox="0 0 512 512" role="img" aria-label="Dark app icon preview">
+            <use href="#veil-v-prism-icon"></use>
+          </svg>
+        </div>
+        <span class="tile-label">App Tile / Dark Mode</span>
+      </article>
+
+      <article class="preview" style="grid-column: span 2">
+        <div class="sizes">
+          <span class="size-check" style="width:128px;height:128px"><svg width="88" height="88" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-check" style="width:88px;height:88px"><svg width="58" height="58" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-check" style="width:56px;height:56px"><svg width="34" height="34" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-check" style="width:40px;height:40px"><svg width="24" height="24" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+        </div>
+        <span class="tile-label">Small Size Check / Light</span>
+      </article>
+
+      <article class="preview dark-preview" style="grid-column: span 2">
+        <div class="sizes">
+          <span class="size-check dark-size" style="width:128px;height:128px"><svg width="88" height="88" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-check dark-size" style="width:88px;height:88px"><svg width="58" height="58" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-check dark-size" style="width:56px;height:56px"><svg width="34" height="34" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-check dark-size" style="width:40px;height:40px"><svg width="24" height="24" viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+        </div>
+        <span class="tile-label">Small Size Check / Dark</span>
+      </article>
+    </section>
+
+    <section class="size-system" aria-label="Icon size system">
+      <div class="size-hero">
+        <div class="construction" aria-label="1024 master icon construction diagram">
+          <span class="guide-line vertical"></span>
+          <span class="guide-line top"></span>
+          <span class="guide-line waist"></span>
+          <span class="guide-line tip"></span>
+          <svg viewBox="0 0 512 512" role="img" aria-label="Veil icon golden ratio construction">
+            <use href="#veil-v-prism-icon"></use>
+          </svg>
+        </div>
+
+        <div class="dimension-notes">
+          <article class="panel">
+            <h2>尺寸构造</h2>
+            <p>以 1024px 母版输出时，当前 SVG 的 512 viewBox 按 2x 映射。图标主体落在 336x336 viewBox 内，对应 1024 母版里的 672x672，既符合 App icon 的方形识别，也给系统圆角、阴影和不同平台 mask 留出安全边界。</p>
+          </article>
+          <table class="dimension-table" aria-label="Master icon construction measurements">
+            <thead>
+              <tr><th>Detail</th><th>512 viewBox</th><th>1024 master</th><th>Rule</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Canvas</td><td>512 x 512</td><td>1024 x 1024</td><td>Apple master source / universal design base</td></tr>
+              <tr><td>Mark box</td><td>x 88-424 / y 96-432</td><td>x 176-848 / y 192-864</td><td>672 x 672，约占画布 65.6%</td></tr>
+              <tr><td>Side margin</td><td>88 / 88</td><td>176 / 176</td><td>左右完全对称，保证社媒圆形裁切</td></tr>
+              <tr><td>Top / bottom</td><td>96 / 80</td><td>192 / 160</td><td>底部略短，补偿下尖锥的视觉重量</td></tr>
+              <tr><td>Golden split</td><td>208 / 128</td><td>416 / 256</td><td>1.625，接近 φ 1.618，偏差约 0.43%</td></tr>
+              <tr><td>Center spine</td><td>x 256</td><td>x 512</td><td>主轴居中，所有尺寸先读到 V 型</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="size-row">
+        <div class="size-caption">
+          <strong>Platform Exports</strong>
+          <span>用于提交、商店、主屏和 Web。最终导出不要手动画圆角；平台会处理 mask。</span>
+        </div>
+        <table class="dimension-table" aria-label="Platform export sizes">
+          <thead>
+            <tr><th>Use</th><th>Size</th><th>Export</th><th>Veil Rule</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Apple App Icon master</td><td>1024 x 1024</td><td>PNG / sRGB or P3</td><td>必须保留完整 1024 母版；不要预烘系统圆角。</td></tr>
+            <tr><td>Google Play listing</td><td>512 x 512</td><td>32-bit PNG / sRGB / max 1024KB</td><td>使用完整方形背景；外部投影由 Google Play 动态处理。</td></tr>
+            <tr><td>iPhone home</td><td>180 / 120</td><td>由 1024 自动缩放或单独导出</td><td>180 保留渐变；120 仍可保留双信号色。</td></tr>
+            <tr><td>iPad home</td><td>167 / 152</td><td>由 1024 自动缩放或单独导出</td><td>不调整比例，保持 672 主体盒。</td></tr>
+            <tr><td>Android launcher</td><td>192 / 144 / 96 / 72 / 48</td><td>密度资源或 adaptive icon</td><td>48 及以下减少外部光晕，保留主体轮廓。</td></tr>
+            <tr><td>Favicon / browser</td><td>64 / 48 / 32 / 16</td><td>PNG / ICO / SVG</td><td>32 用 flat 版本；16 用 mono silhouette。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="size-row">
+        <div class="size-caption">
+          <strong>Visual Ladder</strong>
+          <span>同一图标在常见界面尺寸里的实际识别测试。越小越看轮廓，不看材质。</span>
+        </div>
+        <div class="size-ladder" aria-label="Icon size comparison ladder">
+          <span class="size-sample" style="--box:144px;--mark:96px"><svg viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-sample" style="--box:120px;--mark:80px"><svg viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-sample" style="--box:96px;--mark:64px"><svg viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-sample" style="--box:72px;--mark:48px"><svg viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-sample" style="--box:48px;--mark:32px"><svg viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-sample" style="--box:32px;--mark:22px"><svg viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+          <span class="size-sample dark-sample" style="--box:32px;--mark:22px"><svg viewBox="0 0 512 512"><use href="#veil-v-prism-icon"></use></svg></span>
+        </div>
+      </div>
+
+      <div class="size-row">
+        <div class="size-caption">
+          <strong>Minimum Rules</strong>
+          <span>标准化使用细节，防止在产品和市场物料里失真。</span>
+        </div>
+        <table class="dimension-table" aria-label="Minimum icon rules">
+          <thead>
+            <tr><th>Size</th><th>Allowed Version</th><th>Do</th><th>Avoid</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>128px+</td><td>Full 3D gradient</td><td>可用完整光泽和微量 Champagne 高光。</td><td>不要再加外部光圈或背景装饰。</td></tr>
+            <tr><td>64-96px</td><td>Standard gradient</td><td>保留 Cobalt/Jade/Sky，降低阴影。</td><td>不要加入文字、数字、徽章。</td></tr>
+            <tr><td>32-48px</td><td>Flat gradient</td><td>保留 V 轮廓和中心脊线。</td><td>不要使用细高光线和复杂投影。</td></tr>
+            <tr><td>16-24px</td><td>Mono silhouette</td><td>只用 Deep Ink 或 White 单色。</td><td>不要使用 3D 渐变，细节会糊掉。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="audit" aria-label="Logo visual audit">
+      <article class="audit-card">
+        <h2>视觉审计</h2>
+        <p>按大型设计机构常用的 Logo 审核口径处理：先看轮廓记忆点，再看小尺寸、黑白适配、跨文化风险、系统延展，最后才看质感和光泽。</p>
+        <div class="audit-grid">
+          <div class="audit-item"><strong>轮廓识别</strong><span>通过。双翼 V 与下尖锥形成独立 silhouette，不依赖文字也能成立；外框按 336x336 方形占位。</span></div>
+          <div class="audit-item"><strong>复杂度</strong><span>通过。主结构收敛到 7 个主要面，符合手机 App 图标对低噪声、高轮廓识别的要求。</span></div>
+          <div class="audit-item"><strong>色彩策略</strong><span>通过。去掉彩虹感和大面积金色，保留 Cobalt/Jade 双信号；底部暗面使用品牌化深蓝/深青绿，而非中性灰。</span></div>
+          <div class="audit-item"><strong>小尺寸</strong><span>通过。64px 保留晶体感，32px 保留 V 型，24px 保留整体轮廓；16px 建议使用单色版。</span></div>
+          <div class="audit-item"><strong>黄金比例</strong><span>通过。上半段/下半段为 208/128=1.625；和 φ=1.618 的偏差约 0.43%，适合整数像素落点。</span></div>
+          <div class="audit-item"><strong>国际化</strong><span>通过。没有地域、宗教、博彩符号或动物形象依赖；“预测/看见”由抽象几何表达。</span></div>
+          <div class="audit-item"><strong>独特性风险</strong><span>中低。V 型晶体属于常见语义，但折翼比例、中心脊线和尖锥组合有品牌空间。</span></div>
+          <div class="audit-item"><strong>生产建议</strong><span>下一步应输出 flat SVG、mono SVG、app mask safe-area 和商标检索稿。</span></div>
+        </div>
+      </article>
+
+      <article class="audit-card dark-audit">
+        <h2>对比度审计</h2>
+        <p>WCAG 2.2 对普通文字通常看 4.5:1；大字、UI 图形对象和关键图标常看 3:1。Logo 文字本身有例外，但 App 图标作为功能入口时建议按 3:1 图形对象自检。</p>
+        <table class="contrast-table" aria-label="Contrast audit table">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Pair</th>
+              <th>Ratio</th>
+              <th>Audit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Light tile boundary</td><td>Deep Ink / White</td><td>19.14:1</td><td><span class="pass">AAA text / strong icon</span></td></tr>
+            <tr><td>Dark tile highlight</td><td>Sky / Deep Ink</td><td>12.18:1</td><td><span class="pass">Strong icon edge</span></td></tr>
+            <tr><td>Dark tile accent</td><td>Jade / Deep Ink</td><td>8.20:1</td><td><span class="pass">Pass for icon</span></td></tr>
+            <tr><td>Premium glint</td><td>Champagne / Deep Ink</td><td>8.50:1</td><td><span class="pass">Pass for icon</span></td></tr>
+            <tr><td>App icon edge</td><td>Cobalt / Deep Ink</td><td>3.74:1</td><td><span class="pass">Pass for non-text icon</span></td></tr>
+            <tr><td>App icon edge</td><td>Jade Deep / Deep Ink</td><td>4.79:1</td><td><span class="pass">Pass for non-text icon</span></td></tr>
+            <tr><td>Light mode accent</td><td>Cobalt / White</td><td>5.12:1</td><td><span class="pass">AA text capable</span></td></tr>
+            <tr><td>Light mode jade</td><td>Jade / White</td><td>2.33:1</td><td><span class="warn">Use with dark outline or large area only</span></td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+  </main>
+  <script>
+    const schemeCards = Array.from(document.querySelectorAll("[data-scheme-option]"));
+    function setIconScheme(scheme) {
+      document.body.dataset.scheme = scheme;
+      schemeCards.forEach((card) => {
+        const active = card.dataset.schemeOption === scheme;
+        card.classList.toggle("is-active", active);
+        card.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    }
+
+    schemeCards.forEach((card) => {
+      card.addEventListener("click", () => setIconScheme(card.dataset.schemeOption));
+    });
+
+    setIconScheme(document.body.dataset.scheme || "premium");
+  </script>
+</body>
+</html>

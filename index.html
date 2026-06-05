@@ -701,6 +701,112 @@
       font-size: 13px;
     }
 
+    .option2-showcase {
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .option2-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      padding: 24px;
+      border-bottom: 1px solid var(--line-light);
+      background:
+        linear-gradient(135deg, rgba(139, 216, 255, .14), transparent 34%),
+        linear-gradient(180deg, #fff, var(--porcelain));
+    }
+
+    .option2-head h3 {
+      margin: 0;
+      color: var(--ink-940);
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 46px);
+      line-height: 1;
+    }
+
+    .option2-head p {
+      max-width: 760px;
+      margin: 10px 0 0;
+      color: var(--slate-600);
+      font-size: 15px;
+    }
+
+    .option2-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .option2-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--line-light);
+      border-radius: 8px;
+      color: var(--ink-940);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .option2-button.primary {
+      color: #fff;
+      border-color: rgba(31, 94, 255, .9);
+      background: var(--cobalt);
+      box-shadow: 0 16px 32px rgba(31, 94, 255, .18);
+    }
+
+    .option2-frame-wrap {
+      position: relative;
+      height: min(78vh, 920px);
+      min-height: 620px;
+      background: var(--pearl);
+    }
+
+    .option2-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    .option2-foot {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line-light);
+    }
+
+    .option2-foot div {
+      min-height: 92px;
+      padding: 16px;
+      background: rgba(255, 255, 255, .9);
+    }
+
+    .option2-foot strong {
+      display: block;
+      color: var(--ink-940);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .option2-foot span {
+      display: block;
+      margin-top: 6px;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
     .social-standard-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1481,6 +1587,7 @@
         <li><a href="#strategy">01 Strategy</a></li>
         <li><a href="#logo">02 Logo</a></li>
         <li><a href="#icon-system">03 Icon System</a></li>
+        <li><a href="#icon-option-2">03B Option 2</a></li>
         <li><a href="#color">04 Color</a></li>
         <li><a href="#combinations">05 Combinations</a></li>
         <li><a href="#color-applications">06 Applications</a></li>
@@ -1664,6 +1771,29 @@
             </tbody>
           </table>
           <p class="section-lede" style="margin-top:18px">Accessibility baseline: WCAG 2.x AA requires 4.5:1 for normal text and 3:1 for large text / non-text UI contrast; AAA normal text target is 7:1. Veil 的 Light/Dark icon 背景分离、主文字和深色信号色均达到或超过这个国际基线；Champagne 和 Jade 在浅底上只做装饰或填充，不做小字号文本。</p>
+
+          <div class="option2-showcase" id="icon-option-2">
+            <div class="option2-head">
+              <div>
+                <p class="section-kicker">03B Option 2 / V-Prism Trial</p>
+                <h3>Review the full V-Prism icon system in one place.</h3>
+                <p>这里把新的 V-Prism Icon 设计页作为完整 Option 2 放进 Brand Book。它保留现有品牌色和字体系统，但提供新的 App Icon 方向、三套色彩方案、黄金比例、尺寸导出和视觉审计，便于和当前 Light/Dark diamond icon 做决策比较。</p>
+              </div>
+              <div class="option2-actions">
+                <a class="option2-button primary" href="Veil_Icon_V_Prism_Trial.html">打开完整页面</a>
+                <a class="option2-button" href="Veil_Icon_V_Prism_Trial.html#top">查看选色方案</a>
+              </div>
+            </div>
+            <div class="option2-frame-wrap">
+              <iframe class="option2-frame" src="Veil_Icon_V_Prism_Trial.html" title="Veil V-Prism Icon Trial full page preview"></iframe>
+            </div>
+            <div class="option2-foot">
+              <div><strong>Option Role</strong><span>作为新 App Icon 候选，不直接覆盖现有主标。</span></div>
+              <div><strong>Best Display</strong><span>大屏评审用内嵌预览；精修用完整页面。</span></div>
+              <div><strong>Decision Point</strong><span>先确定 silhouette，再选 Premium / Cobalt / Jade 色彩方案。</span></div>
+              <div><strong>Production Step</strong><span>定稿后输出 SVG、PNG 1024、512、favicon mono。</span></div>
+            </div>
+          </div>
         </div>
       </section>
 
