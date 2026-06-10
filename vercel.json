@@ -4,6 +4,10 @@
   "rewrites": [
     {
       "source": "/",
+      "destination": "/Veil_App_Homepage.html"
+    },
+    {
+      "source": "/brand-book",
       "destination": "/Veil_Brand_Book.html"
     }
   ]
