@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
-  <title id="title">Veil app icon</title>
-  <desc id="desc">A square app icon using the Veil aperture mark.</desc>
+  <title id="title">Merxi app icon</title>
+  <desc id="desc">A square app icon using the Merxi aperture mark.</desc>
   <rect width="1024" height="1024" rx="160" fill="#101318"/>
   <g transform="translate(192 192) scale(2.5)">
     <path d="M128 12 244 128 128 244 12 128Z" fill="#F7FAFA"/>

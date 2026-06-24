@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 132" role="img" aria-labelledby="title desc">
-  <title id="title">Veil reverse horizontal logo</title>
-  <desc id="desc">The Veil reverse horizontal logo lockup with aperture mark for dark backgrounds.</desc>
+  <title id="title">MERXI reverse horizontal logo</title>
+  <desc id="desc">The MERXI reverse horizontal logo lockup with aperture mark for dark backgrounds.</desc>
   <g transform="translate(14 14) scale(.40625)">
     <path d="M128 12 244 128 128 244 12 128Z" fill="#F7FAFA"/>
     <path d="M128 39 207 128 128 217 49 128Z" fill="#101318"/>
@@ -10,7 +10,7 @@
     <path d="M128 39 207 128 128 217 49 128Z" fill="none" stroke="#F7FAFA" stroke-width="6" stroke-linejoin="round" opacity=".94"/>
     <path d="M128 12 244 128 128 244 12 128Z" fill="none" stroke="#F7FAFA" stroke-width="8" stroke-linejoin="round"/>
   </g>
-  <text x="134" y="58" fill="#F7FAFA" font-family="Inter, Geist, Arial, sans-serif" font-size="44" font-weight="760" letter-spacing="0">Veil</text>
-  <text x="136" y="91" fill="#D9DEE4" font-family="'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="21" font-weight="650" letter-spacing="1">预测所</text>
+  <text x="134" y="58" fill="#F7FAFA" font-family="Inter, Geist, Arial, sans-serif" font-size="44" font-weight="760" letter-spacing="0">MERXI</text>
+  <text x="136" y="91" fill="#D9DEE4" font-family="'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="21" font-weight="650" letter-spacing="1">世间</text>
   <path d="M244 84h180" stroke="#68717E" stroke-width="2" stroke-linecap="round"/>
 </svg>

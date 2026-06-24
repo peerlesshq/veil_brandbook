@@ -1,4 +1,4 @@
-# Veil 预测市场品牌色彩调研
+# Merxi 预测市场品牌色彩调研
 
 日期：2026-06-04
 
@@ -14,7 +14,7 @@
 
 ## 2. 竞品色彩审计
 
-| 项目 | 当前定位 | 主要颜色观察 | 视觉气质 | 对 Veil 的启发 |
+| 项目 | 当前定位 | 主要颜色观察 | 视觉气质 | 对 Merxi 的启发 |
 |---|---|---:|---|---|
 | Polymarket | 最大众化的全球预测市场之一 | 官方 Poly Blue `#2E5CFF`，黑 `#000000`，白 `#FFFFFF`；产品 UI 大量使用 `#F4F5F6`、`#E7E8EB`、深色 `#0A0B10` | 新闻流 + 交易 App，干净、高频、国际化 | 蓝色可信，但直接用亮钴蓝会撞脸 |
 | Kalshi | 美国受监管事件合约交易平台 | 官方 Primary Green `#00DD94`、Green 2 `#00CE8E`、Light Green `#CEFFEF`、Dark Green `#01201A` | 监管金融 + 大众体育交易，绿色强品牌 | 绿色有“钱”和增长感，但亚洲交易语义有冲突 |
@@ -39,7 +39,7 @@
 4. 社区游戏型：indigo、teal、coral、较高饱和度。代表 Manifold。
 5. 博彩/体育型：高饱和绿、橙、红、黑、对抗渐变。适合刺激交易，但不利于高端品牌和招商可信度。
 
-对 Veil 来说，不建议把品牌主色建立在红/绿上，也不建议使用过多紫蓝渐变。更合适的方向是：深墨色/炭黑作为高级基底，钴蓝或青玉色作为可信科技主色，少量金属金或银作为钻石 logo 和招商物料的高端点缀。
+对 Merxi 来说，不建议把品牌主色建立在红/绿上，也不建议使用过多紫蓝渐变。更合适的方向是：深墨色/炭黑作为高级基底，钴蓝或青玉色作为可信科技主色，少量金属金或银作为钻石 logo 和招商物料的高端点缀。
 
 ## 4. 亚洲用户与国际化注意点
 
@@ -71,9 +71,9 @@ no-action: #6B7280 或 #F97316
 - 金色：适合招商、VIP、线下物料和钻石 logo 高光，但不应大面积使用，否则容易变成奢侈品/博彩感。
 - 红色：在中国有好运、财富、庆祝意味，但在欧美也强烈关联警告、风险、亏损。适合作为局部 accent 或本地化上涨色，不适合做全球主色。
 - 白色：国际化、简洁，但在东亚语境中纯白大面积可能触发冷感或仪式感。建议用 off-white、雾白、珍珠白代替纯白。
-- 黑色/深墨色：高级、神秘、机构感强，和 Veil 这个名字天然匹配。但要配足浅色界面和人性化 accent，避免显得冷或不可接近。
+- 黑色/深墨色：高级、神秘、机构感强，和 Merxi 这个名字天然匹配。但要配足浅色界面和人性化 accent，避免显得冷或不可接近。
 
-## 5. Veil 色彩战略建议
+## 5. Merxi 色彩战略建议
 
 品牌关键词建议：
 
@@ -108,7 +108,7 @@ no-action: #6B7280 或 #F97316
 | Warning | `#F2A93B` |
 | Danger | `#D94A4A` |
 
-理由：青玉给亚洲用户文化亲近感，钴蓝给欧美用户金融科技信任感，黑色适配 Veil 的名字和钻石符号。
+理由：青玉给亚洲用户文化亲近感，钴蓝给欧美用户金融科技信任感，黑色适配 Merxi 的名字和钻石符号。
 
 ### B. Cobalt Pearl
 
@@ -188,13 +188,13 @@ no-action: #6B7280 或 #F97316
 | Slate | `#475569` |
 | Amber | `#D97706` |
 
-理由：最稳、最容易被金融/媒体接受，但品牌独特性较弱，需要搭配钻石 icon 和 Veil 命名强化识别。
+理由：最稳、最容易被金融/媒体接受，但品牌独特性较弱，需要搭配钻石 icon 和 Merxi 命名强化识别。
 
 ## 7. 推荐优先级
 
 第一推荐：A. Obsidian Jade
 
-- 最符合“亚洲高级 + 国际化金融科技 + Veil/钻石”。
+- 最符合“亚洲高级 + 国际化金融科技 + Merxi/钻石”。
 - 与 Polymarket 蓝、Kalshi 绿、Manifold indigo 区分度较好。
 - App、线下、招商、社媒都能统一。
 
@@ -230,16 +230,16 @@ no-action: #6B7280 或 #F97316
 
 ```css
 :root {
-  --veil-ink: #080D14;
-  --veil-jade: #00C2A8;
-  --veil-cobalt: #315CFF;
-  --veil-gold: #C8A45D;
-  --veil-pearl: #F7FAFC;
-  --veil-graphite: #111827;
+  --merxi-ink: #080D14;
+  --merxi-jade: #00C2A8;
+  --merxi-cobalt: #315CFF;
+  --merxi-gold: #C8A45D;
+  --merxi-pearl: #F7FAFC;
+  --merxi-graphite: #111827;
 
-  --action-primary: var(--veil-cobalt);
-  --action-secondary: var(--veil-jade);
-  --accent-premium: var(--veil-gold);
+  --action-primary: var(--merxi-cobalt);
+  --action-secondary: var(--merxi-jade);
+  --accent-premium: var(--merxi-gold);
 
   --success: #0EA772;
   --warning: #F2A93B;
